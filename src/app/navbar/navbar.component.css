@@ -1,0 +1,118 @@
+.nav {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  width: 70%;
+  max-width: 75rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: #e9f6eb;
+  padding: 0 2rem;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* sticky navbar */
+.nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav__logo {
+  height: 2.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  margin-left: 1rem;
+}
+
+.nav__link {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  transition: all 0.3s;
+}
+
+.nav__link:hover {
+  color: #5ec576;
+}
+
+.nav__link--btn {
+  padding: 0.6rem 1.5rem;
+  margin-left: 1.6rem;
+  border: #222 0.1rem solid;
+  color: #222;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+}
+
+.nav__link--btn:hover {
+  background-color: #abc1b4;
+  color: #000000;
+}
+
+/*Media tablets*/
+@media (max-width: 60rem) {
+  /* 768px */
+  .nav {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .nav__link {
+    font-size: 1.4rem;
+  }
+
+  .nav__link--btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+  }
+  .nav__logo {
+    height: 2rem;
+  }
+}
+/*Media telephone*/
+@media (max-width: 30rem) {
+  /* 480px */
+  .nav {
+    width: 90%;
+    padding: 0 0.5rem;
+  }
+
+  .nav__link {
+    font-size: 0.8rem;
+  }
+  .nav__item {
+    margin-left: 0.5rem;
+  }
+
+  .nav__link--btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+  }
+  .nav__logo {
+    height: 1.4rem;
+  }
+}
