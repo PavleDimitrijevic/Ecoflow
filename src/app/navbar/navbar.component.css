@@ -6,23 +6,26 @@
   height: 5rem;
   width: 70%;
   max-width: 75rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  background-color: #e9f6eb;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
   padding: 0 2rem;
-  z-index: 100;
+  position: relative;
+  z-index: 1000;
   box-sizing: border-box;
 }
 
 /* sticky navbar */
 .nav.sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
+  width: 60%;
+  background: linear-gradient(to right, #ffffff, #e9ffed 100%) padding-box,
+    linear-gradient(to right, #18eb49 0%, #9fffa0 50%, #ffffff 90%) border-box;
+  border: 0.13rem solid transparent;
+  border-top: 0;
+  transition: 0.5s ease;
 }
 
 .nav__logo {
@@ -40,11 +43,11 @@
 }
 
 .nav__item {
-  margin-left: 1rem;
+  margin-left: 1.4rem;
 }
 
 .nav__link {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
   color: #222;
   text-decoration: none;
@@ -54,12 +57,12 @@
 }
 
 .nav__link:hover {
-  color: #5ec576;
+  color: #2ed725;
 }
 
 .nav__link--btn {
-  padding: 0.6rem 1.5rem;
-  margin-left: 1.6rem;
+  padding: 0.6rem 1.4rem;
+  margin-left: 1.1rem;
   border: #222 0.1rem solid;
   color: #222;
   cursor: pointer;
@@ -69,12 +72,12 @@
 }
 
 .nav__link--btn:hover {
-  background-color: #abc1b4;
-  color: #000000;
+  color: #2ed725;
+  border-color: #2ed725;
 }
 
 /*Media tablets*/
-@media (max-width: 60rem) {
+@media (max-width: 70rem) {
   /* 768px */
   .nav {
     width: 90%;
@@ -93,26 +96,85 @@
     height: 2rem;
   }
 }
-/*Media telephone*/
-@media (max-width: 30rem) {
-  /* 480px */
+
+@media (max-width: 60rem) {
+  /* 800px */
   .nav {
-    width: 90%;
-    padding: 0 0.5rem;
+    width: 95%;
+    padding: 0 0.85rem;
   }
 
   .nav__link {
-    font-size: 0.8rem;
-  }
-  .nav__item {
-    margin-left: 0.5rem;
+    font-size: 1rem;
   }
 
   .nav__link--btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
   }
+
   .nav__logo {
-    height: 1.4rem;
+    height: 1.5rem;
+  }
+}
+
+/*Media telephone*/
+@media (max-width: 40rem) {
+  .nav {
+    width: 95%;
+    padding: 0 0.5rem;
+    height: 4rem;
+  }
+
+  .nav__links {
+    gap: 0.4rem;
+  }
+
+  .nav__item {
+    margin-left: 0;
+  }
+
+  .nav__link {
+    font-size: 0.75rem;
+  }
+
+  .nav__link--btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.65rem;
+    margin-left: 0.5rem;
+  }
+
+  .nav__logo {
+    height: 1.2rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .nav {
+    width: 95%;
+    padding: 0 0.4rem;
+    height: 3.5rem;
+  }
+
+  .nav__links {
+    gap: 0.3rem;
+  }
+
+  .nav__item {
+    margin-left: 0;
+  }
+
+  .nav__link {
+    font-size: 0.65rem;
+  }
+
+  .nav__link--btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.55rem;
+    margin-left: 0.3rem;
+  }
+
+  .nav__logo {
+    height: 1rem;
   }
 }
