@@ -25,7 +25,7 @@
     linear-gradient(to right, #18eb49 0%, #9fffa0 50%, #ffffff 90%) border-box;
   border: 0.13rem solid transparent;
   border-top: 0;
-  transition: 0.5s ease;
+  transition: 0.8s ease;
 }
 
 .nav__logo {

@@ -29,10 +29,10 @@
 
 /*HOME HEADER*/
 .home__header {
-  height: 80vh;
-  background-image: url("/images/headerImage1.png");
+  height: 100vh;
+  background-image: url("/images/headerImage7.png");
   background-size: cover;
-  background-position: center 70%;
+  background-position: center 60%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
@@ -51,29 +51,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+
   transition: 0.5s ease;
 }
 
 .header__content {
-  position: relative;
-  color: #07230e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
   z-index: 1;
-  transform: translateY(-60%);
-  max-width: 70rem;
+  transform: translateY(-55%);
+  font-family: "Gill Sans", "Gill Sans MT", "Varela Round", "Trebuchet MS",
+    sans-serif;
+  font-size: 1.25rem;
+}
+
+.highlight {
+  color: #0c1b08;
+}
+#section--technology {
+  border-top: 0;
+  background-image: linear-gradient(to bottom, #badfb2, #f9fff8 40%);
 }
 
 /*MEDIA QUERIES*/
 @media (max-width: 48rem) {
-  .section {
-    padding: 4rem 2rem;
-  }
-  .section__title {
-    margin-bottom: 3rem;
-  }
-  .home__header {
-    padding-left: 2rem;
-  }
   h1 {
     font-size: 2.5rem;
   }
@@ -83,9 +87,36 @@
   h3 {
     font-size: 1.4rem;
   }
+  .section {
+    padding: 4rem 2rem;
+  }
+  .section__title {
+    margin-bottom: 3rem;
+  }
+  .home__header {
+    padding-left: 2rem;
+    background-position: center top; /* bolje centriranje na tabletima */
+    background-size: cover; /* zadrži popunjavanje */
+  }
+  .header__content {
+    transform: translateY(-90%); /* manji pomak da ostane vidljivo */
+    font-size: 0.8rem; /* malo manji font da ne zauzima previše */
+  }
+  #section--technology {
+    background-image: none;
+  }
 }
 
 @media (max-width: 30rem) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
   .section {
     padding: 3rem 1rem;
   }
@@ -95,14 +126,18 @@
 
   .home__header {
     padding-left: 1rem;
+    height: 30vh;
+    background-position: top; /* da vidiš gornji deo slike */
+    background-size: contain; /* smanji sliku da cela stane */
+    background-repeat: no-repeat; /* da se ne ponavlja */
   }
-  h1 {
-    font-size: 2rem;
+  .header__content {
+    transform: translateY(-40%); /* ukloni pomeranje na mobilu */
+    align-items: center; /* centriraj horizontalno */
+    text-align: center; /* tekst centriran */
+    font-size: 1rem; /* još manji font da lepo stane */
   }
-  h2 {
-    font-size: 1.6rem;
-  }
-  h3 {
-    font-size: 1.2rem;
+  #section--technology {
+    background-image: none;
   }
 }
