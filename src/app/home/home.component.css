@@ -192,6 +192,77 @@ h3 {
   flex-shrink: 0;
 }
 
+/*PRODUCTS SECTION*/
+/*BENEFITS SECTION*/
+
+#section--benefits {
+  padding: 4rem 2rem;
+  background: #0d2c2c; /* tamna pozadina kao na slici */
+  color: #fff;
+  border-top: 0;
+}
+
+#section--benefits .section__title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#section--benefits .section__description {
+  color: #20cb48;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#section--benefits .section__header {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.benefit__card {
+  background: #123636;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
+}
+
+.benefit__icon {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #20cb48; /* zelena ikonica */
+}
+
+.benefit__card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.benefit__card p {
+  font-size: 0.95rem;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+/*SECTION INDUSTRIES*/
+#section--industries {
+  border-top: 0;
+}
+
 /*MEDIA QUERIES*/
 @media (max-width: 48rem) {
   h1 {
@@ -274,6 +345,10 @@ h3 {
     height: 2rem;
     font-size: 0.8rem;
   }
+
+  .benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 30rem) {
@@ -316,5 +391,9 @@ h3 {
   }
   #section--technology {
     background-image: none;
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
   }
 }
