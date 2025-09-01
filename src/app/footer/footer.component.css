@@ -1,6 +1,6 @@
 .footer {
-  padding: 4rem 2rem;
-  background-color: #37383d;
+  padding: 2rem 2rem;
+  background-color: #ffffff;
 }
 
 .footer__nav {
@@ -12,29 +12,21 @@
 
 .footer__item {
   margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 
 .footer__link {
   font-size: 1.4rem;
-  color: #eee;
+
+  color: #3b3b3b;
   text-decoration: none;
 }
 
 .footer__logo {
-  height: 3rem;
+  height: 4rem;
   display: block;
   margin: 0 auto;
-  margin-bottom: 3rem;
-}
-
-.footer__copyright {
-  font-size: 1.1rem;
-  color: #aaa;
-  text-align: center;
-}
-
-.footer__copyright .footer__link {
-  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 48rem) {

@@ -387,13 +387,13 @@ h3 {
   color: #091427;
   font-weight: 700;
   border-radius: 3rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.5s;
 }
 
 .industries__btn:hover {
-  background: #799c74;
+  background: #567a51;
 }
 
 .industries__image img {
@@ -401,6 +401,23 @@ h3 {
   max-width: 30rem;
   border-radius: 1rem;
   box-shadow: 0 0.4rem 1.25rem rgba(0, 0, 0, 0.1);
+}
+/* SIGNUP */
+.section--explore {
+  background-color: #ffffff;
+  border-top: none;
+  border-bottom: 0.08rem solid #444;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
+.section--explore .section__header {
+  color: #5d5d5d;
+  text-align: center;
+}
+
+.section--explore .section__title {
+  margin-bottom: 1rem;
 }
 
 /*MEDIA QUERIES*/
