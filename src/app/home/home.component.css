@@ -101,7 +101,7 @@ h3 {
 #section--technology {
   border-top: 0;
   padding: 4rem 2rem;
-  background-image: linear-gradient(to bottom, #f2fbf1, #ffffff 50%);
+  background-image: linear-gradient(to bottom, #f2fbf1, #ffffff 20%);
 }
 
 .technology__container {
@@ -195,6 +195,7 @@ h3 {
 /*PRODUCTS SECTION*/
 #section--products {
   padding: 4rem 2rem;
+  background-color: #fbfcfb;
 }
 
 #section--products .section__title {
@@ -276,7 +277,7 @@ h3 {
 
 .product__card:hover {
   transform: scale(1.03);
-  box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.2);
 }
 
 .product__card:hover h3 {
@@ -385,7 +386,7 @@ h3 {
   border: none;
   background: #b5e3ae;
   color: #091427;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 3rem;
   font-size: 1.3rem;
   cursor: pointer;
