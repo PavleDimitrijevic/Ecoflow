@@ -22,7 +22,7 @@
   right: 0;
   width: 70%;
   background: linear-gradient(to right, #ffffff 20%, #f2fff5) padding-box,
-    linear-gradient(to right, #18eb49 0%, #9fffa0 50%, #ffffff 90%) border-box;
+    linear-gradient(to right, #18eb49 0%, #b7ffb9 50%, #ffffff 90%) border-box;
   border: 0.13rem solid transparent;
   border-top: 0;
   transition: 0.8s ease;

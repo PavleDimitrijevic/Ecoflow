@@ -37,7 +37,7 @@ h3 {
 /*HOME HEADER*/
 .home__header {
   height: 80vh;
-  background-image: url("/images/headerImage11.png");
+  background-image: url("/images/headerImage12.png");
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
@@ -74,14 +74,14 @@ h3 {
 }
 
 .highlight {
-  color: #07815b;
+  color: #028159;
   font-size: larger;
 }
 
 .header__btn {
   margin-top: 3rem;
   padding: 1.1rem 2rem;
-  background-color: #07815b;
+  background-color: #076044;
   color: #ffffff;
   font-size: 1.4rem;
   font-weight: 600;
@@ -287,7 +287,7 @@ h3 {
 /*BENEFITS SECTION*/
 #section--benefits {
   padding: 4rem 2rem;
-  background: #0d2c2c; /* tamna pozadina kao na slici */
+  background: #103636;
   color: #fff;
   border-top: 0;
 }
@@ -318,7 +318,7 @@ h3 {
 }
 
 .benefit__card {
-  background: #123636;
+  background: #184c4c;
   padding: 0.5rem;
   border-radius: 0.75rem;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -331,13 +331,13 @@ h3 {
 
 .benefit__icon {
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #20cb48; /* zelena ikonica */
+  color: #20cb48;
 }
 
 .benefit__card h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -609,11 +609,11 @@ h3 {
 
   .products__grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 2rem;
   }
 
   .product__card img {
-    height: 14rem;
+    height: 12rem;
   }
   .product__title {
     font-size: 1.4rem;
@@ -629,6 +629,6 @@ h3 {
   }
   .industries__image img {
     margin-top: 1rem;
-    max-width: 28rem;
+    max-width: 25rem;
   }
 }
