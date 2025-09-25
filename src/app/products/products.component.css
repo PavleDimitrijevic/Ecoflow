@@ -1,0 +1,133 @@
+.products-header {
+  background-color: #0e4337;
+  text-align: center;
+  padding: 5rem;
+
+  margin-bottom: 3rem;
+}
+
+.products-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.products-header p {
+  font-size: 1.1rem;
+  color: #25d44e;
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 6rem;
+}
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  border-bottom: 0.1rem solid #104337;
+}
+
+.product-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.product-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #123c21; /* tamnozelena nijansa */
+}
+
+.product-text .note {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.product-text p {
+  margin-bottom: 1rem;
+}
+
+.product-image {
+  flex: 1;
+  text-align: right;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #123c21;
+  background: transparent;
+  color: #123c21;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #123c21;
+  color: #fff;
+}
+
+.product-specs {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.spec h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #123822;
+}
+
+.spec p {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #333;
+}
+
+.product-features {
+  margin: 3rem 0;
+}
+
+.product-features h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #123822;
+  margin-bottom: 0.5rem;
+}
+
+.product-features ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.product-features li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .product {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-image {
+    text-align: center;
+  }
+}

@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   width: 70%;
-  background: linear-gradient(to right, #ffffff 20%, #f2fff5) padding-box,
+  background: linear-gradient(to right, #ffffff 15%, #dbfee3) padding-box,
     linear-gradient(to right, #18eb49 0%, #b7ffb9 50%, #ffffff 90%) border-box;
   border: 0.13rem solid transparent;
   border-top: 0;
@@ -48,7 +48,7 @@
 
 .nav__link {
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 450;
   color: #222;
   text-decoration: none;
   cursor: pointer;
@@ -176,5 +176,8 @@
 
   .nav__logo {
     height: 0.8rem;
+  }
+  .nav__item--hide-mobile {
+    display: none;
   }
 }

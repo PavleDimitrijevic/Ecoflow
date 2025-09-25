@@ -9,7 +9,9 @@
       for food scraps and <br />
       food waste disposal
     </h3>
-    <button class="header__btn">Explore GRIFFON digesters</button>
+    <button class="header__btn" routerLink="/products">
+      Explore GRIFFON digesters
+    </button>
   </div>
 </header>
 
@@ -90,16 +92,38 @@
   </div>
   <div class="productsWrapper">
     <div class="products__grid">
-      <div class="product__card">
+      <div
+        class="product__card"
+        [routerLink]="'/products'"
+        [fragment]="'griffon-50'"
+      >
+        <img src="/images/gr50.png" alt="Griffon digester G-50" />
+        <div class="product__content">
+          <h3>Griffon digester G-50 <span class="arrow">›</span></h3>
+          <p>Capacity: 50* kg/day</p>
+          <p>See more</p>
+        </div>
+      </div>
+      <div
+        class="product__card"
+        [routerLink]="'/products'"
+        [fragment]="'griffon-150'"
+      >
         <img src="/images/gr150.png" alt="Griffon digester G-150" />
         <div class="product__content">
-          <h3>Griffon digester G-150 <span class="arrow">›</span></h3>
+          <h3>
+            Griffon digester G-100/<br />G-150 <span class="arrow">›</span>
+          </h3>
           <p>Capacity: 100-200* kg/day</p>
           <p>See more</p>
         </div>
       </div>
 
-      <div class="product__card">
+      <div
+        class="product__card"
+        [routerLink]="'/products'"
+        [fragment]="'griffon-250'"
+      >
         <img src="/images/gr250.png" alt="Griffon digester G-250" />
         <div class="product__content">
           <h3>Griffon digester G-250 <span class="arrow">›</span></h3>
@@ -108,7 +132,11 @@
         </div>
       </div>
 
-      <div class="product__card">
+      <div
+        class="product__card"
+        [routerLink]="'/products'"
+        [fragment]="'griffon-500'"
+      >
         <img src="/images/gr500.png" alt="Griffon digester G-500" />
         <div class="product__content">
           <h3>Griffon digester G-500 <span class="arrow">›</span></h3>
@@ -117,7 +145,11 @@
         </div>
       </div>
 
-      <div class="product__card">
+      <div
+        class="product__card"
+        [routerLink]="'/products'"
+        [fragment]="'griffon-1000'"
+      >
         <img src="/images/gr1000.png" alt="Griffon digester G-1000" />
         <div class="product__content">
           <h3>Griffon digester G-1000 <span class="arrow">›</span></h3>
@@ -200,5 +232,7 @@
       Find the perfect solution for your business.
     </h3>
   </div>
-  <button class="header__btn">Explore GRIFFON digesters</button>
+  <button class="header__btn" routerLink="/products">
+    Explore GRIFFON digesters
+  </button>
 </section>
