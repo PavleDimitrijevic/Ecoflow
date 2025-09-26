@@ -1,0 +1,109 @@
+/* contact.component.css */
+
+.contact {
+  display: flex;
+  height: 55vh;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 15rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  height: 15.8rem;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%2320cb48' fill-opacity='0.1' d='M0,130 C360,210 1080,100 1440,150 L1440,320 L0,320 Z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat;
+
+  background-size: cover;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.contact-left,
+.contact-right {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-left {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.contact-left h5 {
+  font-size: 3.5rem;
+  color: #103636;
+  margin: 5rem 0;
+}
+
+.contact-left p {
+  font-size: 1.5rem;
+  margin-top: -4rem;
+  margin-left: 1rem;
+  color: #41ce62;
+}
+
+.contact-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-panel {
+  width: 100%;
+  max-width: 40rem;
+  background: #ffffff;
+  border-radius: 1.2rem;
+  padding: 1.6rem;
+  box-shadow: 0 0.1rem 3rem rgba(3, 14, 21, 0.06);
+  border-right: 0.006rem solid #20cb48;
+  border-bottom: 0.006rem solid #20cb48;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.info-row {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 1.1rem 5rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.1rem 1rem rgba(8, 22, 40, 0.04);
+}
+
+.info-icon {
+  min-width: 4rem;
+  min-height: 4rem;
+  border-radius: 50%;
+  background: #f9fffa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #20cb48;
+  box-shadow: 0 0.1rem 1rem rgba(8, 22, 40, 0.04);
+  flex-shrink: 0;
+}
+
+.info-text h4 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #0f1720;
+  font-weight: 600;
+}
+
+.info-text p {
+  margin: 0;
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+  color: #4d545b;
+  line-height: 1.35;
+}
