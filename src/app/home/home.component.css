@@ -441,13 +441,24 @@ h3 {
   }
   .home__header {
     padding-left: 2rem;
+    height: 50vh;
     background-position: center top;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   .header__content {
-    transform: translateY(-90%);
+    transform: translateY(-10%);
+    align-items: center;
+    text-align: center;
     font-size: 0.8rem;
   }
+
+  .home__header::after {
+    margin-top: 8rem;
+    height: 40%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
   #section--technology {
     background-image: none;
   }
@@ -485,6 +496,7 @@ h3 {
 
   .technology__list {
     align-items: center;
+    padding-left: 0;
   }
 
   .technology__item {
@@ -558,7 +570,7 @@ h3 {
 
 @media (max-width: 30rem) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   h2 {
     font-size: 1.6rem;
@@ -583,7 +595,7 @@ h3 {
   .home__header::after {
     margin-top: 4rem;
     height: 29%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   .header__content {
@@ -604,10 +616,19 @@ h3 {
     background-image: none;
   }
 
+  .technology__list {
+    align-items: center;
+    padding-left: 0;
+  }
+
   .benefits__grid {
     grid-template-columns: 1fr;
   }
 
+  .benefit__card {
+    text-align: center;
+    align-items: center;
+  }
   .products__grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -617,7 +638,7 @@ h3 {
     height: 12rem;
   }
   .product__card {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
   }
   .product__title {
@@ -634,6 +655,6 @@ h3 {
   }
   .industries__image img {
     margin-top: 1rem;
-    max-width: 25rem;
+    max-width: 22rem;
   }
 }
