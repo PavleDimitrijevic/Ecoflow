@@ -29,7 +29,8 @@
 }
 
 .nav__logo {
-  height: 2.8rem;
+  margin-top: 0.4rem;
+  height: 12rem;
   transition: all 0.3s;
   cursor: pointer;
 }

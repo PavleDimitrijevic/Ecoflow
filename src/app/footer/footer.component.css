@@ -48,8 +48,11 @@
 }
 
 .footer__list li {
-  cursor: pointer;
   transition: color 0.3s ease;
+}
+
+.footer_terms {
+  cursor: pointer;
 }
 
 .footer__list li:hover {
