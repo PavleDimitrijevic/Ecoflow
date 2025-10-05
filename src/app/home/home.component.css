@@ -586,15 +586,14 @@ h3 {
   }
 
   .home__header {
-    padding-left: 1rem;
     height: 30vh;
-    background-position: top;
-    background-size: contain;
+    background-size: 100% 100%;
+    background-position: center;
     background-repeat: no-repeat;
   }
   .home__header::after {
     margin-top: 4rem;
-    height: 29%;
+    height: 24%;
     background: rgba(0, 0, 0, 0.2);
   }
 
@@ -602,7 +601,7 @@ h3 {
     transform: translateY(-10%);
     align-items: center;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .header__btn {
