@@ -1,26 +1,21 @@
 <header id="home" class="home__header">
   <div class="header__content">
     <h1>
-      Good for <span class="highlight">business </span>, good for
-      <span class="highlight"> nature</span>
+      {{ "HOME_TITLE" | translate }}
     </h1>
     <h3>
-      <span class="highlight"> Griffon digester</span>
-      for food scraps and <br />
-      food waste disposal
+      {{ "HOME_SUBTITLE" | translate }}
     </h3>
     <button class="header__btn" routerLink="/products">
-      Explore GRIFFON digesters
+      {{ "HOME_BUTTON" | translate }}
     </button>
   </div>
 </header>
 
 <section class="section" id="section--technology">
   <div class="section__title">
-    <h2 class="section__description">Digester technology</h2>
-    <h3 class="section__header">
-      Delivering sustainable solutions for food waste management.
-    </h3>
+    <h2 class="section__description">{{ "TECH_TITLE" | translate }}</h2>
+    <h3 class="section__header">{{ "TECH_SUBTITLE" | translate }}</h3>
   </div>
 
   <div class="technology__container">
@@ -30,52 +25,38 @@
       </div>
     </div>
     <div class="technology__content">
-      <h2 class="technology__title">
-        Turning Food Waste Into a Clean and Sustainable Resource
-      </h2>
+      <h2 class="technology__title">{{ "TECH_CONTENT_TITLE" | translate }}</h2>
       <p class="technology__subtitle">
-        Innovation that drives efficiency and environmental responsibility.
+        {{ "TECH_CONTENT_SUBTITLE" | translate }}
       </p>
 
       <ul class="technology__list">
         <li class="technology__item">
           <span class="technology__icon">✔</span>
           <div>
-            <h3>GRIFFON device</h3>
-            <p>
-              Food scraps are collected into bins and loaded into the device on
-              your location.
-            </p>
+            <h3>{{ "TECH_ITEM1_TITLE" | translate }}</h3>
+            <p>{{ "TECH_ITEM1_DESC" | translate }}</p>
           </div>
         </li>
-
         <li class="technology__item">
           <span class="technology__icon">✔</span>
           <div>
-            <h3>Microorganisms + Oxygen</h3>
-            <p>
-              Special mixture of microorganisms is added to the device, where
-              the mixture is aerated.
-            </p>
+            <h3>{{ "TECH_ITEM2_TITLE" | translate }}</h3>
+            <p>{{ "TECH_ITEM2_DESC" | translate }}</p>
           </div>
         </li>
-
         <li class="technology__item">
           <span class="technology__icon">✔</span>
           <div>
-            <h3>Digeston</h3>
-            <p>Organic matter breaks down into wastewater.</p>
+            <h3>{{ "TECH_ITEM3_TITLE" | translate }}</h3>
+            <p>{{ "TECH_ITEM3_DESC" | translate }}</p>
           </div>
         </li>
-
         <li class="technology__item">
           <span class="technology__icon">✔</span>
           <div>
-            <h3>Effluent</h3>
-            <p>
-              Wastewater is filtered and released through existing water
-              infrastructure.
-            </p>
+            <h3>{{ "TECH_ITEM4_TITLE" | translate }}</h3>
+            <p>{{ "TECH_ITEM4_DESC" | translate }}</p>
           </div>
         </li>
       </ul>
@@ -85,10 +66,8 @@
 
 <section class="section" id="section--products">
   <div class="section__title">
-    <h2 class="section__description">Products</h2>
-    <h3 class="section__header">
-      Explore our range of Griffon digesters for every need.
-    </h3>
+    <h2 class="section__description">{{ "PRODUCTS_TITLE" | translate }}</h2>
+    <h3 class="section__header">{{ "PRODUCTS_SUBTITLE" | translate }}</h3>
   </div>
   <div class="productsWrapper">
     <div class="products__grid">
@@ -99,11 +78,14 @@
       >
         <img src="/images/gr50.png" alt="Griffon digester G-50" />
         <div class="product__content">
-          <h3>Griffon digester G-50 <span class="arrow">›</span></h3>
-          <p>Capacity: 50* kg/day</p>
-          <p>See more</p>
+          <h3>
+            {{ "PRODUCT1_TITLE" | translate }} <span class="arrow">›</span>
+          </h3>
+          <p>{{ "PRODUCT1_CAPACITY" | translate }}</p>
+          <p>{{ "PRODUCT1_MORE" | translate }}</p>
         </div>
       </div>
+
       <div
         class="product__card"
         [routerLink]="'/products'"
@@ -112,10 +94,10 @@
         <img src="/images/gr150.png" alt="Griffon digester G-150" />
         <div class="product__content">
           <h3>
-            Griffon digester G-100/<br />G-150 <span class="arrow">›</span>
+            {{ "PRODUCT2_TITLE" | translate }} <span class="arrow">›</span>
           </h3>
-          <p>Capacity: 100-200* kg/day</p>
-          <p>See more</p>
+          <p>{{ "PRODUCT2_CAPACITY" | translate }}</p>
+          <p>{{ "PRODUCT2_MORE" | translate }}</p>
         </div>
       </div>
 
@@ -126,9 +108,11 @@
       >
         <img src="/images/gr250.png" alt="Griffon digester G-250" />
         <div class="product__content">
-          <h3>Griffon digester G-250 <span class="arrow">›</span></h3>
-          <p>Capacity: 180-300* kg/day</p>
-          <p>See more</p>
+          <h3>
+            {{ "PRODUCT3_TITLE" | translate }} <span class="arrow">›</span>
+          </h3>
+          <p>{{ "PRODUCT3_CAPACITY" | translate }}</p>
+          <p>{{ "PRODUCT3_MORE" | translate }}</p>
         </div>
       </div>
 
@@ -139,9 +123,11 @@
       >
         <img src="/images/gr500.png" alt="Griffon digester G-500" />
         <div class="product__content">
-          <h3>Griffon digester G-500 <span class="arrow">›</span></h3>
-          <p>Capacity: 350-600* kg/day</p>
-          <p>See more</p>
+          <h3>
+            {{ "PRODUCT4_TITLE" | translate }} <span class="arrow">›</span>
+          </h3>
+          <p>{{ "PRODUCT4_CAPACITY" | translate }}</p>
+          <p>{{ "PRODUCT4_MORE" | translate }}</p>
         </div>
       </div>
 
@@ -152,9 +138,11 @@
       >
         <img src="/images/gr1000.png" alt="Griffon digester G-1000" />
         <div class="product__content">
-          <h3>Griffon digester G-1000 <span class="arrow">›</span></h3>
-          <p>Capacity: 700-1200* kg/day</p>
-          <p>See more</p>
+          <h3>
+            {{ "PRODUCT5_TITLE" | translate }} <span class="arrow">›</span>
+          </h3>
+          <p>{{ "PRODUCT5_CAPACITY" | translate }}</p>
+          <p>{{ "PRODUCT5_MORE" | translate }}</p>
         </div>
       </div>
     </div>
@@ -163,45 +151,45 @@
 
 <section class="section" id="section--benefits">
   <div class="section__title">
-    <h2 class="section__description">Benefits of using Griffon technology</h2>
-    <h3 class="section__header">Efficient and Integrated Digester Benefits</h3>
+    <h2 class="section__description">{{ "BENEFITS_TITLE" | translate }}</h2>
+    <h3 class="section__header">{{ "BENEFITS_SUBTITLE" | translate }}</h3>
   </div>
 
   <div class="benefits__grid">
     <div class="benefit__card">
       <span class="benefit__icon">🏭</span>
-      <h3>No Warehouses</h3>
-      <p>No warehauses,reduced administration.</p>
+      <h3>{{ "BENEFIT1_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT1_DESC" | translate }}</p>
     </div>
 
     <div class="benefit__card">
       <span class="benefit__icon">🥗</span>
-      <h3>Less Food Waste</h3>
-      <p>Reduced amounts of food waste. Reduced charges.</p>
+      <h3>{{ "BENEFIT2_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT2_DESC" | translate }}</p>
     </div>
 
     <div class="benefit__card">
       <span class="benefit__icon">🚚</span>
-      <h3>No Transport</h3>
-      <p>No transport of waste. Reduced emissions of CO2.</p>
+      <h3>{{ "BENEFIT3_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT3_DESC" | translate }}</p>
     </div>
 
     <div class="benefit__card">
       <span class="benefit__icon">🌍</span>
-      <h3>No Methane</h3>
-      <p>No methane emitted from landills. No leaching to waterways.</p>
+      <h3>{{ "BENEFIT4_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT4_DESC" | translate }}</p>
     </div>
 
     <div class="benefit__card">
       <span class="benefit__icon">🚫</span>
-      <h3>No Odors</h3>
-      <p>No unpleasant odors which attract flies and rodents.</p>
+      <h3>{{ "BENEFIT5_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT5_DESC" | translate }}</p>
     </div>
 
     <div class="benefit__card">
       <span class="benefit__icon">💼</span>
-      <h3>Better for Business</h3>
-      <p>Do more for the environment and your business.</p>
+      <h3>{{ "BENEFIT6_TITLE" | translate }}</h3>
+      <p>{{ "BENEFIT6_DESC" | translate }}</p>
     </div>
   </div>
 </section>
@@ -209,15 +197,11 @@
 <section class="section" id="section--industries">
   <div class="industries__container">
     <div class="industries__content">
-      <h2 class="industries__title">Industries We Can Help</h2>
-      <p class="industries__subtitle">
-        Our Griffon digesters provide sustainable food waste solutions across a
-        wide range of industries. From hotels, restaurants, and commercial
-        kitchens, to hospitals, schools, supermarkets, airports, and cruise
-        ships - we help businesses reduce waste, cut costs, and lower their
-        environmental footprint.
-      </p>
-      <button class="industries__btn" routerLink="/contact">Contact us</button>
+      <h2 class="industries__title">{{ "INDUSTRIES_TITLE" | translate }}</h2>
+      <p class="industries__subtitle">{{ "INDUSTRIES_DESC" | translate }}</p>
+      <button class="industries__btn" routerLink="/contact">
+        {{ "INDUSTRIES_BUTTON" | translate }}
+      </button>
     </div>
 
     <div class="industries__image">
@@ -228,11 +212,9 @@
 
 <section class="section section--explore" id="section--explore">
   <div class="section__title">
-    <h3 class="section__header">
-      Find the perfect solution for your business.
-    </h3>
+    <h3 class="section__header">{{ "EXPLORE_SUBTITLE" | translate }}</h3>
   </div>
   <button class="header__btn" routerLink="/products">
-    Explore GRIFFON digesters
+    {{ "EXPLORE_BUTTON" | translate }}
   </button>
 </section>

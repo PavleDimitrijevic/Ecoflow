@@ -82,6 +82,40 @@
   border-color: #2ed725;
 }
 
+.nav__item--lang {
+  margin-left: auto; /* gura element skroz desno u flex kontejneru */
+}
+
+.lang-btn {
+  font-size: clamp(0.44rem, 0.28rem + 0.8vw, 1.2rem);
+  padding: clamp(0.2rem, 0.12rem + 0.4vw, 0.48rem)
+    clamp(0.4rem, 0.24rem + 0.8vw, 1.12rem);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0.1rem solid #222;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-weight: 400;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.1rem;
+  transition: all 0.3s;
+  width: 60%;
+  height: 2rem;
+}
+
+.lang-en {
+  background-image: url("/images/sr.png");
+}
+
+.lang-sr {
+  background-image: url("/images/eng.png");
+}
+
 /* Media 80rem */
 @media (max-width: 80rem) {
   .nav {
@@ -93,6 +127,12 @@
   }
   .nav__links {
     margin-top: 0.4rem;
+  }
+  .lang-btn {
+    font-size: clamp(0.36rem, 0.23rem + 0.64vw, 1rem);
+    padding: clamp(0.16rem, 0.096rem + 0.32vw, 0.38rem)
+      clamp(0.32rem, 0.19rem + 0.64vw, 0.9rem);
+    height: 1.6rem;
   }
 }
 
@@ -108,6 +148,12 @@
 
   .nav__links {
     margin-top: 0.3rem;
+  }
+  .lang-btn {
+    font-size: clamp(0.32rem, 0.2rem + 0.56vw, 0.9rem);
+    padding: clamp(0.14rem, 0.084rem + 0.28vw, 0.36rem)
+      clamp(0.28rem, 0.17rem + 0.56vw, 0.85rem);
+    height: 1.4rem;
   }
 }
 
@@ -129,6 +175,13 @@
 
   .nav__item {
     margin-left: 0;
+  }
+
+  .lang-btn {
+    font-size: clamp(0.28rem, 0.17rem + 0.48vw, 0.8rem);
+    padding: clamp(0.12rem, 0.072rem + 0.24vw, 0.32rem)
+      clamp(0.24rem, 0.14rem + 0.48vw, 0.75rem);
+    height: 1.2rem;
   }
 }
 
@@ -154,5 +207,12 @@
   .nav__link--btn {
     margin: auto;
     margin-left: 0.2rem;
+  }
+
+  .lang-btn {
+    font-size: clamp(0.24rem, 0.15rem + 0.4vw, 0.7rem);
+    padding: clamp(0.1rem, 0.06rem + 0.2vw, 0.28rem)
+      clamp(0.2rem, 0.12rem + 0.4vw, 0.65rem);
+    height: 1rem;
   }
 }

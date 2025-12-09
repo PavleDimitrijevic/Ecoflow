@@ -586,7 +586,7 @@ h3 {
   }
 
   .home__header {
-    height: 30vh;
+    height: 35vh;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -613,8 +613,14 @@ h3 {
   }
   #section--technology {
     background-image: none;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
   }
 
+  .technology__title {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
   .technology__list {
     align-items: center;
     padding-left: 0;
