@@ -15,8 +15,10 @@
   "FOOTER_TERMS_TITLE": "USLOVI KORIŠĆENJA",
   "FOOTER_TERMS_PRIVACY": "Politika privatnosti",
   "FOOTER_TERMS_IMPRESSUM": "Impresum",
-  "HOME_TITLE": "Dobro za biznis, dobro za prirodu",
-  "HOME_SUBTITLE": "Griffon digestor za ostatke i otpad od hrane",
+  "HOME_TITLE_PART1": "Dobro za biznis,",
+  "HOME_TITLE_PART2": "dobro za prirodu",
+  "HOME_SUBTITLE_PART1": "Griffon digestor za ostatke",
+  "HOME_SUBTITLE_PART2": "i otpad od hrane",
   "HOME_BUTTON": "Istražite GRIFFON digestore",
 
   "TECH_TITLE": "Tehnologija digestora",
@@ -29,7 +31,7 @@
   "TECH_ITEM2_DESC": "Specijalna mešavina mikroorganizama dodaje se u uređaj, gde se mešavina aerira",
   "TECH_ITEM3_TITLE": "Digeston",
   "TECH_ITEM3_DESC": "Organski materijal se razlaže u otpadnu vodu",
-  "TECH_ITEM4_TITLE": "Eflluent",
+  "TECH_ITEM4_TITLE": "Otpadna voda",
   "TECH_ITEM4_DESC": "Otpadna voda se filtrira i ispušta kroz postojeću vodovodnu infrastrukturu",
 
   "PRODUCTS_TITLE": "Proizvodi",
