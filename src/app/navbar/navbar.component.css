@@ -23,9 +23,9 @@
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
-  background: linear-gradient(to right, #ffffff 20%, #f1fff1) padding-box,
-    linear-gradient(to right, #18eb49 0%, #b7ffb9 70%, #ffffff 90%) border-box;
-  border: 0.12rem solid transparent;
+  background: linear-gradient(to right, #ffffff 20%, #fafdfa) padding-box,
+    linear-gradient(to right, #18eb49 0%, #b7ffb9 90%, #ffffff 95%) border-box;
+  border: 0.08rem solid transparent;
   border-top: 0;
   transition: 0.8s ease;
 }
@@ -94,7 +94,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 0.1rem solid #222;
+  border: 0.06rem solid #222;
   border-radius: 0.3rem;
   cursor: pointer;
   font-weight: 400;
@@ -203,6 +203,9 @@
   .nav__item {
     margin-left: 0;
   }
+  .mobile_hidden {
+    display: none;
+  }
 
   .nav__link--btn {
     margin: auto;
@@ -210,9 +213,78 @@
   }
 
   .lang-btn {
+    font-size: clamp(0.26rem, 0.16rem + 0.45vw, 0.75rem);
+    padding: clamp(0.12rem, 0.08rem + 0.25vw, 0.32rem)
+      clamp(0.45rem, 0.28rem + 0.8vw, 1rem);
+    height: 1.1rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  .nav {
+    width: 97%;
+    padding: 0 0.4rem;
+    height: 3.2rem;
+  }
+
+  .nav__logo {
+    height: 1.35rem;
+  }
+
+  .nav__links {
+    gap: 0.15rem;
+    margin-top: 0.08rem;
+  }
+
+  .nav__item {
+    margin-left: 0;
+  }
+
+  .mobile_hidden {
+    display: none;
+  }
+
+  .nav__link--btn {
+    margin: auto;
+    margin-left: 0.15rem;
+  }
+
+  .lang-btn {
     font-size: clamp(0.24rem, 0.15rem + 0.4vw, 0.7rem);
-    padding: clamp(0.1rem, 0.06rem + 0.2vw, 0.28rem)
-      clamp(0.2rem, 0.12rem + 0.4vw, 0.65rem);
+    padding: clamp(0.11rem, 0.07rem + 0.22vw, 0.3rem)
+      clamp(0.42rem, 0.26rem + 0.75vw, 0.9rem);
+    height: 1.05rem;
+  }
+}
+
+@media (max-width: 20rem) {
+  .nav {
+    width: 98%;
+    padding: 0 0.3rem;
+    height: 3rem;
+  }
+
+  .nav__logo {
+    height: 1.2rem;
+  }
+
+  .nav__links {
+    gap: 0.1rem;
+    margin-top: 0.05rem;
+  }
+
+  .nav__link--btn {
+    margin-left: 0.1rem;
+  }
+
+  .mobile_hidden {
+    display: none;
+  }
+
+  .lang-btn {
+    font-size: clamp(0.22rem, 0.14rem + 0.35vw, 0.65rem);
+    padding: clamp(0.1rem, 0.06rem + 0.2vw, 0.26rem)
+      clamp(0.38rem, 0.22rem + 0.7vw, 0.8rem);
     height: 1rem;
   }
 }
