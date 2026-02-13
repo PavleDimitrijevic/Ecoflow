@@ -9,15 +9,14 @@
   "FOOTER_ABOUT_TITLE": "ABOUT US",
   "FOOTER_ABOUT_COMPANY": "Ecoflow d.o.o.",
   "FOOTER_ABOUT_LOCATION": "Belgrade, Serbia",
-
   "FOOTER_CONTACT_TITLE": "CONTACT US",
-
   "FOOTER_TERMS_TITLE": "TERMS OF USE",
   "FOOTER_TERMS_PRIVACY": "Privacy policy",
   "FOOTER_TERMS_IMPRESSUM": "Impressum",
-
-  "HOME_TITLE": "Good for business, good for nature",
-  "HOME_SUBTITLE": "Griffon digester for food scraps and food waste disposal",
+  "HOME_TITLE_PART1": "Good for business,",
+  "HOME_TITLE_PART2": "good for the planet",
+  "HOME_SUBTITLE_PART1": "Griffon digester for organic waste",
+  "HOME_SUBTITLE_PART2": "and food leftovers",
   "HOME_BUTTON": "Explore GRIFFON digesters",
 
   "TECH_TITLE": "Digester technology",

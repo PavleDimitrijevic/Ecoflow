@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -28,16 +29,21 @@ export class AppComponent {
   title = 'ecoflow';
   currentLang = localStorage.getItem('lang') || 'sr';
 
-  constructor(private translate: TranslateService) {
-    // Dodaj dostupne jezike
+  constructor(
+    private translate: TranslateService,
+    private languageService: LanguageService,
+  ) {
     translate.addLangs(['en', 'sr']);
     translate.setDefaultLang('sr');
     translate.use(this.currentLang);
+
+    this.languageService.setLang(this.currentLang); // inicijalizuj servis
   }
 
   toggleLang() {
     this.currentLang = this.currentLang === 'en' ? 'sr' : 'en';
     this.translate.use(this.currentLang);
+    this.languageService.setLang(this.currentLang); // update servis
     localStorage.setItem('lang', this.currentLang);
   }
 }

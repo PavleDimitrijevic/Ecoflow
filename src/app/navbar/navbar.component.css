@@ -23,7 +23,8 @@
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
-  background: linear-gradient(to right, #ffffff 20%, #fafdfa) padding-box,
+  background:
+    linear-gradient(to right, #ffffff 20%, #fafdfa) padding-box,
     linear-gradient(to right, #18eb49 0%, #b7ffb9 90%, #ffffff 95%) border-box;
   border: 0.08rem solid transparent;
   border-top: 0;
@@ -31,7 +32,7 @@
 }
 
 .nav__logo {
-  height: clamp(0.8rem, 0.5rem + 5vw, 5rem);
+  height: clamp(0.85rem, 0.55rem + 5.5vw, 5.5rem);
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -83,7 +84,7 @@
 }
 
 .nav__item--lang {
-  margin-left: auto; /* gura element skroz desno u flex kontejneru */
+  margin-left: auto;
 }
 
 .lang-btn {
@@ -109,11 +110,11 @@
 }
 
 .lang-en {
-  background-image: url("/images/sr.png");
+  background-image: url("/images/eng.png");
 }
 
 .lang-sr {
-  background-image: url("/images/eng.png");
+  background-image: url("/images/sr.png");
 }
 
 /* Media 80rem */
@@ -123,7 +124,7 @@
     padding: 0 1rem;
   }
   .nav__logo {
-    height: 3rem;
+    height: 3.3rem;
   }
   .nav__links {
     margin-top: 0.4rem;
@@ -143,7 +144,7 @@
     padding: 0 0.9rem;
   }
   .nav__logo {
-    height: 2.5rem;
+    height: 2.8rem;
   }
 
   .nav__links {
@@ -165,7 +166,7 @@
     height: 4rem;
   }
   .nav__logo {
-    height: 2rem;
+    height: 2.2rem;
   }
 
   .nav__links {
@@ -193,7 +194,7 @@
     height: 3.5rem;
   }
   .nav__logo {
-    height: 1.5rem;
+    height: 1.6rem;
   }
   .nav__links {
     gap: 0.2rem;
@@ -228,7 +229,7 @@
   }
 
   .nav__logo {
-    height: 1.35rem;
+    height: 1.5rem;
   }
 
   .nav__links {
@@ -265,7 +266,7 @@
   }
 
   .nav__logo {
-    height: 1.2rem;
+    height: 1.4rem;
   }
 
   .nav__links {

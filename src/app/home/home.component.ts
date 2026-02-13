@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,19 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  // ngOnInit(): void {
-  //   window.scrollTo({ top: 0, behavior: 'auto' });
-  // }
+  currentLang: string = 'sr';
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit() {
+    this.languageService.currentLang$.subscribe((lang) => {
+      this.currentLang = lang;
+    });
+  }
+
+  get technologyImage(): string {
+    return this.currentLang === 'sr'
+      ? '/images/technology3.png'
+      : '/images/technology2.png';
+  }
 }
