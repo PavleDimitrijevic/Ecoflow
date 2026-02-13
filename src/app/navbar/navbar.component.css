@@ -6,8 +6,8 @@
   height: 5rem;
   width: 90%;
   max-width: 75rem;
-  border-bottom-left-radius: 0.6rem;
-  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
   padding: 0 2rem;
   position: relative;
   z-index: 1000;
