@@ -26,4 +26,10 @@ export class HomeComponent {
       ? '/images/technology3.png'
       : '/images/technology2.png';
   }
+
+  get industriesImage(): string {
+    return this.currentLang === 'sr'
+      ? '/images/industries1.png'
+      : '/images/industries.png';
+  }
 }

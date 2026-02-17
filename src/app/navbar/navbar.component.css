@@ -4,8 +4,7 @@
   justify-content: space-between;
   align-items: center;
   height: 5rem;
-  width: 90%;
-  max-width: 75rem;
+  width: 100%;
   border-bottom-left-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
   padding: 0 2rem;
@@ -21,7 +20,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  max-width: 75rem;
+  max-width: 100rem;
   margin: 0 auto;
   background:
     linear-gradient(to right, #ffffff 20%, #fafdfa) padding-box,
@@ -32,7 +31,8 @@
 }
 
 .nav__logo {
-  height: clamp(0.85rem, 0.55rem + 5.5vw, 5.5rem);
+  height: clamp(0.85rem, 0.5rem + 5.5vw, 5.5rem);
+  margin-top: 0.4rem;
   transition: all 0.3s;
   cursor: pointer;
 }
