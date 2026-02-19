@@ -23,8 +23,8 @@
   max-width: 100rem;
   margin: 0 auto;
   background:
-    linear-gradient(to right, #ffffff 20%, #fafdfa) padding-box,
-    linear-gradient(to right, #18eb49 0%, #b7ffb9 90%, #ffffff 95%) border-box;
+    linear-gradient(to right, #ffffff 10%, #f4fff4) padding-box,
+    linear-gradient(to right, #04553b 0%, #4da88b 70%, #ffffff 90%) border-box;
   border: 0.08rem solid transparent;
   border-top: 0;
   transition: 0.8s ease;
