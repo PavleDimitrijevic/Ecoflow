@@ -35,7 +35,7 @@ h1 {
   margin-left: 2rem;
 }
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-left: 2rem;
 }
 
@@ -47,10 +47,10 @@ h3 {
 
 /*HOME HEADER*/
 .home__header {
-  height: 70vh;
-  background-image: url("/images/headerImage2.webp");
+  height: 100vh;
+  background-image: url("/images/headerImage3.png");
   background-size: cover;
-  background-position: center 60%;
+  background-position: center 35%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
@@ -79,7 +79,7 @@ h3 {
   align-items: flex-start;
   color: #ffffff;
   z-index: 1;
-  transform: translateY(-15%);
+  transform: translateY(-20%);
   font-family:
     "Gill Sans", "Gill Sans MT", "Varela Round", "Trebuchet MS", sans-serif;
 }
@@ -464,9 +464,10 @@ h3 {
   }
   .home__header {
     padding-left: 2rem;
+    background-image: url("/images/headerImage31.png");
     height: 50vh;
     background-position: center top;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
   .header__content {
@@ -476,11 +477,11 @@ h3 {
     font-size: 0.8rem;
   }
 
-  .home__header::after {
+  /* .home__header::after {
     margin-top: 8rem;
     height: 40%;
     background: rgba(0, 0, 0, 0.2);
-  }
+  } */
 
   #section--technology {
     background-image: none;
@@ -599,8 +600,8 @@ h3 {
 }
 @media (max-width: 30rem) {
   h1 {
-    font-size: 1.6rem;
-    margin-top: 1rem;
+    font-size: 1.3rem;
+    margin-top: 8rem;
     margin-left: 0;
   }
   h2 {
@@ -619,15 +620,15 @@ h3 {
 
   .home__header {
     height: 35vh;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
-  .home__header::after {
+  /* .home__header::after {
     margin-top: 4rem;
     height: 35%;
     background: rgba(0, 0, 0, 0.2);
-  }
+  } */
 
   .header__content {
     transform: translateY(-15%);
@@ -637,7 +638,7 @@ h3 {
   }
 
   .header__btn {
-    margin-top: 1rem;
+    margin-top: 3rem;
     padding: 0.6rem 0.8rem;
     background-color: #076044;
     color: #ffffff;
@@ -715,7 +716,7 @@ h3 {
 @media (max-width: 25rem) {
   h1 {
     font-size: 1.4rem;
-    margin-top: 0.8rem;
+    margin-top: 2rem;
     margin-left: 0;
   }
 
@@ -738,16 +739,16 @@ h3 {
 
   .home__header {
     height: 32vh;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-  .home__header::after {
+  /* .home__header::after {
     margin-top: 3.5rem;
     height: 29%;
     background: rgba(0, 0, 0, 0.2);
-  }
+  } */
 
   .header__content {
     transform: translateY(-8%);
