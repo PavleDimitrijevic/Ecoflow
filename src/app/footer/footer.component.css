@@ -1,6 +1,6 @@
 .footer {
   background: #103636;
-  color: #fff;
+  color: #d6e7dd;
   padding: 3rem 2rem;
 }
 
@@ -35,7 +35,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #20cb48;
+  color: #d6e7dd;
   text-transform: uppercase;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .footer__list a:hover {
-  color: #2ed725;
+  color: #8fd6c2;
   text-decoration: underline;
 }
 
