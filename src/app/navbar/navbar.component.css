@@ -25,9 +25,8 @@
   background:
     linear-gradient(to right, #ffffff 10%, #f4fff4) padding-box,
     linear-gradient(to right, #04553b 0%, #4da88b 70%, #ffffff 90%) border-box;
-  border: 0.08rem solid transparent;
+  border: clamp(0.03125rem, 0.08vw, 0.08125rem) solid transparent;
   border-top: 0;
-  transition: 0.8s ease;
 }
 
 .nav__logo {
