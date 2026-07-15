@@ -1,5 +1,5 @@
 <nav class="nav" [class.sticky]="isSticky">
-  <a href="#home">
+  <a routerLink="/home" fragment="home">
     <img
       src="/images/ecoflowLogo.png"
       alt="Ecoflow logo"
@@ -10,10 +10,12 @@
 
   <ul class="nav__links">
     <li class="nav__item">
-      <a class="nav__link" href="#home">{{ "NAV_HOME" | translate }}</a>
+      <a class="nav__link" routerLink="/home" fragment="home">{{
+        "NAV_HOME" | translate
+      }}</a>
     </li>
     <li class="nav__item">
-      <a class="nav__link" href="#section--technology">{{
+      <a class="nav__link" routerLink="/home" fragment="section--technology">{{
         "NAV_TECHNOLOGY" | translate
       }}</a>
     </li>
@@ -22,13 +24,22 @@
         "NAV_PRODUCTS" | translate
       }}</a>
     </li>
+    <li class="nav__item">
+      <a
+        class="nav__link"
+        routerLink="/calculator"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >{{ "NAV_CALCULATOR" | translate }}</a
+      >
+    </li>
     <li class="nav__item mobile_hidden">
-      <a class="nav__link" href="#section--benefits">{{
+      <a class="nav__link" routerLink="/home" fragment="section--benefits">{{
         "NAV_BENEFITS" | translate
       }}</a>
     </li>
     <li class="nav__item mobile_hidden">
-      <a class="nav__link" href="#section--industries">{{
+      <a class="nav__link" routerLink="/home" fragment="section--industries">{{
         "NAV_INDUSTRIES" | translate
       }}</a>
     </li>

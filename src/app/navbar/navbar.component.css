@@ -64,6 +64,10 @@
   color: #019b6b;
 }
 
+.nav__link.active {
+  color: #019b6b;
+}
+
 .nav__link--btn {
   font-size: clamp(0.55rem, 0.35rem + 1vw, 1.5rem);
   padding: clamp(0.2rem, 0.12rem + 0.35vw, 0.45rem)

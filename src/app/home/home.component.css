@@ -12,6 +12,13 @@
   transform: translateY(8rem);
 }
 
+#home,
+#section--technology,
+#section--benefits,
+#section--industries {
+  scroll-margin-top: 6rem;
+}
+
 .section__title {
   margin: 0 auto 6rem auto;
 }

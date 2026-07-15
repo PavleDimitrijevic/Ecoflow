@@ -1,0 +1,299 @@
+<section class="calculator-page">
+  <div class="calculator-hero">
+    <div class="calculator-hero__content">
+      <p class="calculator-hero__eyebrow">{{ "CALCULATOR_STEP_LABEL" | translate }}</p>
+      <h1>{{ "CALCULATOR_PAGE_TITLE" | translate }}</h1>
+      <p class="calculator-hero__subtitle">
+        {{ "CALCULATOR_PAGE_SUBTITLE" | translate }}
+      </p>
+    </div>
+  </div>
+
+  <div class="calculator-shell">
+    <div
+      class="calculator-progress"
+      [attr.aria-label]="'CALCULATOR_PROGRESS_ARIA' | translate"
+    >
+      <div
+        class="calculator-progress__item"
+        [class.is-active]="isStepActive('category')"
+        [class.is-complete]="isStepCompleted('category')"
+      >
+        <span class="calculator-progress__index">1</span>
+        <span class="calculator-progress__label">
+          {{ "CALCULATOR_STEP_CATEGORY" | translate }}
+        </span>
+      </div>
+
+      <div
+        class="calculator-progress__item"
+        [class.is-active]="isStepActive('method')"
+        [class.is-complete]="isStepCompleted('method')"
+      >
+        <span class="calculator-progress__index">2</span>
+        <span class="calculator-progress__label">
+          {{ "CALCULATOR_STEP_METHOD" | translate }}
+        </span>
+      </div>
+
+      <div
+        class="calculator-progress__item"
+        [class.is-active]="isStepActive('result')"
+        [class.is-complete]="isStepCompleted('result')"
+      >
+        <span class="calculator-progress__index">3</span>
+        <span class="calculator-progress__label">
+          {{ "CALCULATOR_STEP_RESULT" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <div class="calculator-card">
+      <form [formGroup]="form" novalidate>
+        <div *ngIf="currentStep === 'category'" class="calculator-step">
+          <div class="calculator-step__header">
+            <h2>{{ "CALCULATOR_CATEGORY_TITLE" | translate }}</h2>
+            <p>{{ "CALCULATOR_CATEGORY_DESCRIPTION" | translate }}</p>
+          </div>
+
+          <div
+            class="option-grid option-grid--categories"
+            role="radiogroup"
+            [attr.aria-label]="'CALCULATOR_CATEGORY_TITLE' | translate"
+          >
+            <label
+              *ngFor="let category of categories"
+              class="choice-card"
+              [class.choice-card--selected]="isCategorySelected(category.id)"
+            >
+              <input
+                type="radio"
+                formControlName="category"
+                [value]="category.id"
+              />
+              <span class="choice-card__title">{{ category.labelKey | translate }}</span>
+            </label>
+          </div>
+
+          <p
+            *ngIf="getControlErrorKey('category')"
+            class="form-error"
+            id="category-error"
+          >
+            {{ getControlErrorKey("category") | translate }}
+          </p>
+
+          <div class="calculator-actions">
+            <button
+              type="button"
+              class="calculator-button calculator-button--primary"
+              (click)="continueToMethodStep()"
+            >
+              {{ "CALCULATOR_CONTINUE" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="currentStep === 'method'" class="calculator-step">
+          <div class="calculator-step__header">
+            <h2>{{ "CALCULATOR_METHOD_TITLE" | translate }}</h2>
+            <p>{{ "CALCULATOR_METHOD_DESCRIPTION" | translate }}</p>
+          </div>
+
+          <div
+            class="option-grid option-grid--methods"
+            role="radiogroup"
+            [attr.aria-label]="'CALCULATOR_METHOD_TITLE' | translate"
+          >
+            <label
+              *ngFor="let method of availableMethods"
+              class="choice-card choice-card--method"
+              [class.choice-card--selected]="isMethodSelected(method.id)"
+            >
+              <input
+                type="radio"
+                formControlName="method"
+                [value]="method.id"
+              />
+              <span class="choice-card__title">{{ method.labelKey | translate }}</span>
+              <span class="choice-card__description">
+                {{ method.descriptionKey | translate }}
+              </span>
+            </label>
+          </div>
+
+          <p
+            *ngIf="getControlErrorKey('method')"
+            class="form-error"
+            id="method-error"
+          >
+            {{ getControlErrorKey("method") | translate }}
+          </p>
+
+          <div *ngIf="selectedMethod" class="calculator-inputs">
+            <div class="form-field">
+              <label for="calculator-quantity">
+                {{ selectedMethod.inputLabelKey | translate }}
+              </label>
+              <input
+                id="calculator-quantity"
+                formControlName="quantity"
+                [attr.step]="quantityInputStep"
+                [attr.inputmode]="quantityInputMode"
+                [attr.aria-invalid]="form.controls.quantity.invalid"
+                [attr.aria-describedby]="getControlErrorKey('quantity') ? 'quantity-error' : null"
+                type="number"
+              />
+              <p
+                *ngIf="getControlErrorKey('quantity')"
+                class="form-error"
+                id="quantity-error"
+              >
+                {{ getControlErrorKey("quantity") | translate }}
+              </p>
+            </div>
+
+            <div class="form-field">
+              <label for="calculator-operating-days">
+                {{ "CALCULATOR_OPERATING_DAYS" | translate }}
+              </label>
+              <input
+                id="calculator-operating-days"
+                formControlName="operatingDaysPerWeek"
+                type="number"
+                step="1"
+                inputmode="numeric"
+                [attr.aria-invalid]="form.controls.operatingDaysPerWeek.invalid"
+                [attr.aria-describedby]="getControlErrorKey('operatingDaysPerWeek') ? 'days-error' : null"
+              />
+              <p
+                *ngIf="getControlErrorKey('operatingDaysPerWeek')"
+                class="form-error"
+                id="days-error"
+              >
+                {{ getControlErrorKey("operatingDaysPerWeek") | translate }}
+              </p>
+            </div>
+          </div>
+
+          <div class="calculator-actions">
+            <button
+              type="button"
+              class="calculator-button calculator-button--secondary"
+              (click)="goBack()"
+            >
+              {{ "CALCULATOR_BACK" | translate }}
+            </button>
+            <button
+              type="button"
+              class="calculator-button calculator-button--primary"
+              (click)="calculate()"
+            >
+              {{ "CALCULATOR_CALCULATE" | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div
+        *ngIf="currentStep === 'result' && result"
+        class="calculator-step calculator-result"
+        aria-live="polite"
+      >
+        <div class="calculator-step__header">
+          <h2>{{ "CALCULATOR_RESULT_TITLE" | translate }}</h2>
+          <p>{{ "CALCULATOR_ESTIMATED_WASTE" | translate }}</p>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-card">
+            <span>{{ "CALCULATOR_DAILY" | translate }}</span>
+            <strong>{{ result.dailyWasteKg }} kg</strong>
+          </div>
+          <div class="result-card">
+            <span>{{ "CALCULATOR_WEEKLY" | translate }}</span>
+            <strong>{{ result.weeklyWasteKg }} kg</strong>
+          </div>
+          <div class="result-card">
+            <span>{{ "CALCULATOR_MONTHLY" | translate }}</span>
+            <strong>{{ result.monthlyWasteKg }} kg</strong>
+          </div>
+          <div class="result-card">
+            <span>{{ "CALCULATOR_ANNUAL" | translate }}</span>
+            <strong>{{ result.annualWasteKg }} kg</strong>
+          </div>
+        </div>
+
+        <div class="recommendation-card">
+          <p class="recommendation-card__eyebrow">
+            {{ "CALCULATOR_RECOMMENDATION_TITLE" | translate }}
+          </p>
+          <h3>
+            {{ "CALCULATOR_RECOMMENDED_MODEL" | translate }}:
+            <span>{{ result.recommendation.model?.nameKey | translate }}</span>
+          </h3>
+
+          <p
+            *ngIf="result.recommendation.type === 'custom' && result.recommendation.model?.customDescriptionKey"
+            class="recommendation-card__description"
+          >
+            {{ result.recommendation.model.customDescriptionKey | translate }}
+          </p>
+
+          <div
+            *ngIf="result.recommendation.type === 'model' && result.recommendation.model"
+            class="recommendation-specs"
+          >
+            <div class="recommendation-spec">
+              <span>{{ "CALCULATOR_OFFICIAL_CAPACITY" | translate }}</span>
+              <strong>{{ result.recommendation.model.publishedCapacityKey | translate }}</strong>
+            </div>
+            <div class="recommendation-spec">
+              <span>{{ "PRODUCT_SPEC_WEIGHT" | translate }}</span>
+              <strong>{{ result.recommendation.model.weightValueKey | translate }}</strong>
+            </div>
+            <div class="recommendation-spec">
+              <span>{{ "PRODUCT_SPEC_DIMENSIONS" | translate }}</span>
+              <strong>{{ result.recommendation.model.dimensionsValueKey | translate }}</strong>
+            </div>
+            <div class="recommendation-spec">
+              <span>{{ "CALCULATOR_MOTOR_POWER" | translate }}</span>
+              <strong>{{ result.recommendation.model.motorValueKey | translate }}</strong>
+            </div>
+            <div class="recommendation-spec recommendation-spec--full">
+              <span>{{ "CALCULATOR_IDEAL_USE_CASE" | translate }}</span>
+              <strong>{{ result.recommendation.model.idealForKey | translate }}</strong>
+            </div>
+          </div>
+
+          <p class="recommendation-card__disclaimer">
+            {{ "CALCULATOR_DISCLAIMER" | translate }}
+          </p>
+        </div>
+
+        <div class="calculator-actions calculator-actions--result">
+          <button
+            type="button"
+            class="calculator-button calculator-button--secondary"
+            (click)="goBack()"
+          >
+            {{ "CALCULATOR_BACK" | translate }}
+          </button>
+          <button
+            type="button"
+            class="calculator-button calculator-button--secondary"
+            (click)="startAgain()"
+          >
+            {{ "CALCULATOR_START_AGAIN" | translate }}
+          </button>
+          <a class="calculator-button calculator-button--primary" routerLink="/contact">
+            {{ "CALCULATOR_CONTACT_CTA" | translate }}
+          </a>
+          <a class="calculator-button calculator-button--ghost" routerLink="/products">
+            {{ "CALCULATOR_PRODUCTS_CTA" | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
