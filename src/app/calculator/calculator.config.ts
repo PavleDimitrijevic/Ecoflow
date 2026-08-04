@@ -224,6 +224,8 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT1_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT1_MOTOR_VALUE',
     idealForKey: 'PRODUCT1_IDEAL_FOR',
+    imagePath: 'images/gr50.png',
+    imageAltKey: 'CALCULATOR_PRODUCT1_IMAGE_ALT',
   },
   {
     id: 'g100g150',
@@ -235,6 +237,8 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT2_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT2_MOTOR_VALUE',
     idealForKey: 'PRODUCT2_IDEAL_FOR',
+    imagePath: 'images/gr150.png',
+    imageAltKey: 'CALCULATOR_PRODUCT2_IMAGE_ALT',
   },
   {
     id: 'g250',
@@ -246,6 +250,8 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT3_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT3_MOTOR_VALUE',
     idealForKey: 'PRODUCT3_IDEAL_FOR',
+    imagePath: 'images/gr250.png',
+    imageAltKey: 'CALCULATOR_PRODUCT3_IMAGE_ALT',
   },
   {
     id: 'g500',
@@ -257,6 +263,8 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT4_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT4_MOTOR_VALUE',
     idealForKey: 'PRODUCT4_IDEAL_FOR',
+    imagePath: 'images/gr500.png',
+    imageAltKey: 'CALCULATOR_PRODUCT4_IMAGE_ALT',
   },
   {
     id: 'g1000',
@@ -268,6 +276,8 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT5_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT5_MOTOR_VALUE',
     idealForKey: 'PRODUCT5_IDEAL_FOR',
+    imagePath: 'images/gr1000.png',
+    imageAltKey: 'CALCULATOR_PRODUCT5_IMAGE_ALT',
   },
   {
     id: 'custom',

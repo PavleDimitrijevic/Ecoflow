@@ -1,7 +1,9 @@
 <section class="calculator-page">
   <div class="calculator-hero">
     <div class="calculator-hero__content">
-      <p class="calculator-hero__eyebrow">{{ "CALCULATOR_STEP_LABEL" | translate }}</p>
+      <p class="calculator-hero__eyebrow">
+        {{ "CALCULATOR_STEP_LABEL" | translate }}
+      </p>
       <h1>{{ "CALCULATOR_PAGE_TITLE" | translate }}</h1>
       <p class="calculator-hero__subtitle">
         {{ "CALCULATOR_PAGE_SUBTITLE" | translate }}
@@ -71,7 +73,9 @@
                 formControlName="category"
                 [value]="category.id"
               />
-              <span class="choice-card__title">{{ category.labelKey | translate }}</span>
+              <span class="choice-card__title">{{
+                category.labelKey | translate
+              }}</span>
             </label>
           </div>
 
@@ -115,7 +119,9 @@
                 formControlName="method"
                 [value]="method.id"
               />
-              <span class="choice-card__title">{{ method.labelKey | translate }}</span>
+              <span class="choice-card__title">{{
+                method.labelKey | translate
+              }}</span>
               <span class="choice-card__description">
                 {{ method.descriptionKey | translate }}
               </span>
@@ -141,7 +147,9 @@
                 [attr.step]="quantityInputStep"
                 [attr.inputmode]="quantityInputMode"
                 [attr.aria-invalid]="form.controls.quantity.invalid"
-                [attr.aria-describedby]="getControlErrorKey('quantity') ? 'quantity-error' : null"
+                [attr.aria-describedby]="
+                  getControlErrorKey('quantity') ? 'quantity-error' : null
+                "
                 type="number"
               />
               <p
@@ -164,7 +172,11 @@
                 step="1"
                 inputmode="numeric"
                 [attr.aria-invalid]="form.controls.operatingDaysPerWeek.invalid"
-                [attr.aria-describedby]="getControlErrorKey('operatingDaysPerWeek') ? 'days-error' : null"
+                [attr.aria-describedby]="
+                  getControlErrorKey('operatingDaysPerWeek')
+                    ? 'days-error'
+                    : null
+                "
               />
               <p
                 *ngIf="getControlErrorKey('operatingDaysPerWeek')"
@@ -234,40 +246,83 @@
           </h3>
 
           <p
-            *ngIf="result.recommendation.type === 'custom' && result.recommendation.model?.customDescriptionKey"
+            *ngIf="
+              result.recommendation.type === 'custom' &&
+              result.recommendation.model?.customDescriptionKey
+            "
             class="recommendation-card__description"
           >
             {{ result.recommendation.model.customDescriptionKey | translate }}
           </p>
 
           <div
-            *ngIf="result.recommendation.type === 'model' && result.recommendation.model"
-            class="recommendation-specs"
+            *ngIf="
+              result.recommendation.type === 'model' &&
+              result.recommendation.model
+            "
+            class="recommendation-content"
           >
-            <div class="recommendation-spec">
-              <span>{{ "CALCULATOR_OFFICIAL_CAPACITY" | translate }}</span>
-              <strong>{{ result.recommendation.model.publishedCapacityKey | translate }}</strong>
+            <div class="recommendation-specs">
+              <div class="recommendation-spec">
+                <span>{{ "CALCULATOR_OFFICIAL_CAPACITY" | translate }}</span>
+                <strong>
+                  {{
+                    result.recommendation.model.publishedCapacityKey | translate
+                  }}
+                </strong>
+              </div>
+
+              <div class="recommendation-spec">
+                <span>{{ "PRODUCT_SPEC_WEIGHT" | translate }}</span>
+                <strong>
+                  {{ result.recommendation.model.weightValueKey | translate }}
+                </strong>
+              </div>
+
+              <div class="recommendation-spec">
+                <span>{{ "PRODUCT_SPEC_DIMENSIONS" | translate }}</span>
+                <strong>
+                  {{
+                    result.recommendation.model.dimensionsValueKey | translate
+                  }}
+                </strong>
+              </div>
+
+              <div class="recommendation-spec">
+                <span>{{ "CALCULATOR_MOTOR_POWER" | translate }}</span>
+                <strong>
+                  {{ result.recommendation.model.motorValueKey | translate }}
+                </strong>
+              </div>
+
+              <div class="recommendation-spec">
+                <span>{{ "CALCULATOR_IDEAL_USE_CASE" | translate }}</span>
+                <strong>
+                  {{ result.recommendation.model.idealForKey | translate }}
+                </strong>
+              </div>
             </div>
-            <div class="recommendation-spec">
-              <span>{{ "PRODUCT_SPEC_WEIGHT" | translate }}</span>
-              <strong>{{ result.recommendation.model.weightValueKey | translate }}</strong>
-            </div>
-            <div class="recommendation-spec">
-              <span>{{ "PRODUCT_SPEC_DIMENSIONS" | translate }}</span>
-              <strong>{{ result.recommendation.model.dimensionsValueKey | translate }}</strong>
-            </div>
-            <div class="recommendation-spec">
-              <span>{{ "CALCULATOR_MOTOR_POWER" | translate }}</span>
-              <strong>{{ result.recommendation.model.motorValueKey | translate }}</strong>
-            </div>
-            <div class="recommendation-spec recommendation-spec--full">
-              <span>{{ "CALCULATOR_IDEAL_USE_CASE" | translate }}</span>
-              <strong>{{ result.recommendation.model.idealForKey | translate }}</strong>
+
+            <div
+              *ngIf="result.recommendation.model.imagePath"
+              class="recommendation-image"
+            >
+              <img
+                [src]="result.recommendation.model.imagePath"
+                [alt]="
+                  result.recommendation.model.imageAltKey
+                    ? (result.recommendation.model.imageAltKey | translate)
+                    : ''
+                "
+              />
             </div>
           </div>
 
           <p class="recommendation-card__disclaimer">
             {{ "CALCULATOR_DISCLAIMER" | translate }}
+          </p>
+          <p class="recommendation-card__disclaimer">
+            {{ "CALCULATOR_DISCLAIMER_SUBTITLE" | translate }}
           </p>
         </div>
 
@@ -286,10 +341,16 @@
           >
             {{ "CALCULATOR_START_AGAIN" | translate }}
           </button>
-          <a class="calculator-button calculator-button--primary" routerLink="/contact">
+          <a
+            class="calculator-button calculator-button--primary"
+            routerLink="/contact"
+          >
             {{ "CALCULATOR_CONTACT_CTA" | translate }}
           </a>
-          <a class="calculator-button calculator-button--ghost" routerLink="/products">
+          <a
+            class="calculator-button calculator-button--ghost"
+            routerLink="/products"
+          >
             {{ "CALCULATOR_PRODUCTS_CTA" | translate }}
           </a>
         </div>

@@ -71,6 +71,8 @@ export interface GriffonModel {
   dimensionsValueKey?: string;
   motorValueKey?: string;
   idealForKey?: string;
+  imagePath?: string;
+  imageAltKey?: string;
   customDescriptionKey?: string;
 }
 

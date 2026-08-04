@@ -167,7 +167,8 @@
   "CALCULATOR_CUSTOM_SOLUTION_DESCRIPTION": "Procenjena količina prelazi 1000 kg/dan. Ecoflow treba da uradi detaljnu procenu profila otpada i po potrebi predloži više uređaja ili prilagođenu konfiguraciju.",
   "CALCULATOR_CONTACT_CTA": "Kontaktirajte Ecoflow",
   "CALCULATOR_PRODUCTS_CTA": "Pogledajte proizvode",
-  "CALCULATOR_DISCLAIMER": "Objavljeni tehnički kapaciteti i kalkulatorski pragovi preporuke nisu ista stvar. Stvarni učinak zavisi od sastava i vrste hrane.",
+  "CALCULATOR_DISCLAIMER": "Objavljeni tehnički kapaciteti i kalkulatorski pragovi preporuke nisu ista stvar.",
+  "CALCULATOR_DISCLAIMER_SUBTITLE": " Stvarni učinak zavisi od sastava i vrste hrane.",
   "CALCULATOR_REQUIRED_ERROR": "Ovo polje je obavezno.",
   "CALCULATOR_POSITIVE_NUMBER_ERROR": "Unesite ispravan pozitivan broj veći od nule.",
   "CALCULATOR_INTEGER_ERROR": "Unesite ceo broj.",
@@ -222,5 +223,10 @@
   "CALCULATOR_INPUT_VISITORS_LABEL": "Broj posetilaca dnevno",
   "CALCULATOR_METHOD_KNOWN_DAILY_WASTE_LABEL": "Poznata količina kg/dan",
   "CALCULATOR_METHOD_KNOWN_DAILY_WASTE_DESCRIPTION": "Koristite kada već merite ili procenjujete ostatke hrane direktno u kilogramima po danu.",
-  "CALCULATOR_INPUT_KNOWN_DAILY_WASTE_LABEL": "Poznata količina ostataka hrane (kg/dan)"
+  "CALCULATOR_INPUT_KNOWN_DAILY_WASTE_LABEL": "Poznata količina ostataka hrane (kg/dan)",
+  "CALCULATOR_PRODUCT1_IMAGE_ALT": "Griffon G-50 digestor za ostatke hrane",
+  "CALCULATOR_PRODUCT2_IMAGE_ALT": "Griffon G-100/G-150 digestor za ostatke hrane",
+  "CALCULATOR_PRODUCT3_IMAGE_ALT": "Griffon G-250 digestor za ostatke hrane",
+  "CALCULATOR_PRODUCT4_IMAGE_ALT": "Griffon G-500 digestor za ostatke hrane",
+  "CALCULATOR_PRODUCT5_IMAGE_ALT": "Griffon G-1000 digestor za ostatke hrane"
 }

@@ -167,7 +167,8 @@
   "CALCULATOR_CUSTOM_SOLUTION_DESCRIPTION": "Your estimated volume is above 1000 kg/day. Ecoflow should review the exact waste profile and may recommend a multi-unit setup or a custom configuration.",
   "CALCULATOR_CONTACT_CTA": "Contact Ecoflow",
   "CALCULATOR_PRODUCTS_CTA": "View products",
-  "CALCULATOR_DISCLAIMER": "Published capacities and recommendation thresholds are not the same. Actual processing performance depends on the composition and type of food.",
+  "CALCULATOR_DISCLAIMER": "Published capacities and recommendation thresholds are not the same.",
+  "CALCULATOR_DISCLAIMER_SUBTITLE": "Actual processing performance depends on the composition and type of food.",
   "CALCULATOR_REQUIRED_ERROR": "This field is required.",
   "CALCULATOR_POSITIVE_NUMBER_ERROR": "Enter a valid positive number greater than zero.",
   "CALCULATOR_INTEGER_ERROR": "Enter a whole number.",
@@ -222,5 +223,10 @@
   "CALCULATOR_INPUT_VISITORS_LABEL": "Visitors per day",
   "CALCULATOR_METHOD_KNOWN_DAILY_WASTE_LABEL": "Known daily waste",
   "CALCULATOR_METHOD_KNOWN_DAILY_WASTE_DESCRIPTION": "Use this when you already measure or estimate food waste directly in kilograms per day.",
-  "CALCULATOR_INPUT_KNOWN_DAILY_WASTE_LABEL": "Known food waste (kg/day)"
+  "CALCULATOR_INPUT_KNOWN_DAILY_WASTE_LABEL": "Known food waste (kg/day)",
+  "CALCULATOR_PRODUCT1_IMAGE_ALT": "Griffon G-50 food waste digester",
+  "CALCULATOR_PRODUCT2_IMAGE_ALT": "Griffon G-100/G-150 food waste digester",
+  "CALCULATOR_PRODUCT3_IMAGE_ALT": "Griffon G-250 food waste digester",
+  "CALCULATOR_PRODUCT4_IMAGE_ALT": "Griffon G-500 food waste digester",
+  "CALCULATOR_PRODUCT5_IMAGE_ALT": "Griffon G-1000 food waste digester"
 }

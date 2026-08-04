@@ -237,7 +237,8 @@
 }
 
 .form-error {
-  margin: 0.75rem 0 0;
+  margin: 1rem;
+  margin-top: 1.5rem;
   color: #9f3d3d;
   font-size: 0.92rem;
   line-height: 1.45;
@@ -377,11 +378,39 @@
   color: #47615c;
 }
 
+.recommendation-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+}
+
 .recommendation-specs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.recommendation-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  min-height: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(16, 54, 54, 0.08);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.recommendation-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 28rem;
+  max-height: 34rem;
+  object-fit: contain;
 }
 
 .recommendation-spec {
@@ -392,10 +421,6 @@
   border-radius: 0.9rem;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(16, 54, 54, 0.08);
-}
-
-.recommendation-spec--full {
-  grid-column: 1 / -1;
 }
 
 .recommendation-spec span {
@@ -409,10 +434,10 @@
 }
 
 .recommendation-card__disclaimer {
-  margin: 1.1rem 0 0;
-  color: #5d5d5d;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  margin: 1.1rem 1rem 0;
+  color: #777777;
+  font-size: 0.85rem;
+  line-height: 1.01;
 }
 
 @media (max-width: 60rem) {
@@ -425,9 +450,20 @@
   }
 
   .calculator-inputs,
-  .result-grid,
-  .recommendation-specs {
+  .result-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .recommendation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-specs {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-image {
+    min-height: 20rem;
   }
 }
 
@@ -441,8 +477,7 @@
   }
 
   .calculator-inputs,
-  .result-grid,
-  .recommendation-specs {
+  .result-grid {
     grid-template-columns: 1fr;
   }
 
@@ -455,5 +490,19 @@
   .calculator-button {
     width: 100%;
     margin-top: 0;
+  }
+
+  .recommendation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-image {
+    min-height: auto;
+    padding: 0.35rem;
+  }
+
+  .recommendation-image img {
+    max-width: 100%;
+    max-height: 20rem;
   }
 }
