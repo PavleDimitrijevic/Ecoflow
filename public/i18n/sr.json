@@ -140,7 +140,7 @@
 
   "CALCULATOR_PAGE_TITLE": "Kalkulator ostataka hrane",
   "CALCULATOR_PAGE_SUBTITLE": "Procenite količinu ostataka hrane i pogledajte koji Griffon digestor najbolje odgovara vašem objektu.",
-  "CALCULATOR_STEP_LABEL": "Tok kalkulatora",
+  "CALCULATOR_STEP_LABEL": "Kalkulator",
   "CALCULATOR_PROGRESS_ARIA": "Napredak kroz kalkulator",
   "CALCULATOR_STEP_CATEGORY": "Kategorija",
   "CALCULATOR_STEP_METHOD": "Procena",
@@ -189,8 +189,7 @@
   "CALCULATOR_CATEGORY_HOUSEHOLD": "Domaćinstva",
   "CALCULATOR_CATEGORY_FULL_SERVICE_RESTAURANT": "Restorani sa punom uslugom",
   "CALCULATOR_CATEGORY_LIMITED_SERVICE_RESTAURANT": "Restorani brze ili ograničene usluge",
-  "CALCULATOR_CATEGORY_ELEMENTARY_SCHOOL": "Osnovne škole",
-  "CALCULATOR_CATEGORY_SECONDARY_SCHOOL": "Srednje škole",
+  "CALCULATOR_CATEGORY_SCHOOL": "Škole",
   "CALCULATOR_CATEGORY_SUPERMARKET": "Supermarketi i hipermarketi",
   "CALCULATOR_CATEGORY_VENUE": "Objekti za događaje",
 

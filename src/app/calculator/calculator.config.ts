@@ -78,13 +78,8 @@ export const CATEGORY_CONFIGS: readonly CategoryConfig[] = [
     methods: ['meals', 'employees', 'knownDailyWaste'],
   },
   {
-    id: 'elementarySchool',
-    labelKey: 'CALCULATOR_CATEGORY_ELEMENTARY_SCHOOL',
-    methods: ['students', 'meals', 'knownDailyWaste'],
-  },
-  {
-    id: 'secondarySchool',
-    labelKey: 'CALCULATOR_CATEGORY_SECONDARY_SCHOOL',
+    id: 'school',
+    labelKey: 'CALCULATOR_CATEGORY_SCHOOL',
     methods: ['students', 'meals', 'knownDailyWaste'],
   },
   {
@@ -206,10 +201,7 @@ export const CALCULATION_METHODS: Readonly<
 
 // TODO: Replace with confirmed Ecoflow/ORCA business factor before production release.
 export const WASTE_FACTORS: Readonly<
-  Record<
-    Exclude<CalculationMethodId, 'meals' | 'knownDailyWaste'>,
-    number
-  >
+  Record<Exclude<CalculationMethodId, 'meals' | 'knownDailyWaste'>, number>
 > = {
   students: 0.12,
   employees: 0.18,

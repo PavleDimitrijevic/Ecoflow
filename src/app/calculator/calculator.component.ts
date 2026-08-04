@@ -139,7 +139,10 @@ export class CalculatorComponent implements OnInit {
       const availableMethods = this.getMethodsForCategory(categoryId);
       const selectedMethod = this.form.controls.method.value;
 
-      if (!selectedMethod || !availableMethods.some((method) => method.id === selectedMethod)) {
+      if (
+        !selectedMethod ||
+        !availableMethods.some((method) => method.id === selectedMethod)
+      ) {
         this.form.controls.method.reset(null);
       }
     });
@@ -179,7 +182,7 @@ export class CalculatorComponent implements OnInit {
     const categoryId = this.form.controls.category.value;
 
     return categoryId
-      ? this.categories.find((category) => category.id === categoryId) ?? null
+      ? (this.categories.find((category) => category.id === categoryId) ?? null)
       : null;
   }
 
@@ -228,7 +231,6 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'method';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   goBack(): void {
@@ -284,7 +286,6 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'result';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   startAgain(): void {
@@ -298,10 +299,11 @@ export class CalculatorComponent implements OnInit {
     this.result = null;
     this.hasSubmittedStepTwo = false;
     this.currentStep = 'category';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  getControlErrorKey(controlName: 'category' | 'method' | 'quantity' | 'operatingDaysPerWeek'): string | null {
+  getControlErrorKey(
+    controlName: 'category' | 'method' | 'quantity' | 'operatingDaysPerWeek',
+  ): string | null {
     const control = this.form.controls[controlName];
     const shouldShow = control.touched || this.hasSubmittedStepTwo;
 
@@ -338,7 +340,9 @@ export class CalculatorComponent implements OnInit {
     return null;
   }
 
-  private getMethodsForCategory(categoryId: BusinessCategoryId): CalculationMethodConfig[] {
+  private getMethodsForCategory(
+    categoryId: BusinessCategoryId,
+  ): CalculationMethodConfig[] {
     const category = this.categories.find((item) => item.id === categoryId);
 
     if (!category) {

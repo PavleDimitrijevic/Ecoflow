@@ -140,7 +140,7 @@
 
   "CALCULATOR_PAGE_TITLE": "Food Waste Calculator",
   "CALCULATOR_PAGE_SUBTITLE": "Estimate your food waste volume and see which Griffon digester is the best fit for your site.",
-  "CALCULATOR_STEP_LABEL": "Calculator workflow",
+  "CALCULATOR_STEP_LABEL": "Calculator",
   "CALCULATOR_PROGRESS_ARIA": "Calculator progress",
   "CALCULATOR_STEP_CATEGORY": "Category",
   "CALCULATOR_STEP_METHOD": "Estimate",
@@ -189,8 +189,7 @@
   "CALCULATOR_CATEGORY_HOUSEHOLD": "Residential Households",
   "CALCULATOR_CATEGORY_FULL_SERVICE_RESTAURANT": "Full-Service Restaurants",
   "CALCULATOR_CATEGORY_LIMITED_SERVICE_RESTAURANT": "Limited-Service Restaurants",
-  "CALCULATOR_CATEGORY_ELEMENTARY_SCHOOL": "Elementary Schools",
-  "CALCULATOR_CATEGORY_SECONDARY_SCHOOL": "Secondary Schools",
+  "CALCULATOR_CATEGORY_SCHOOL": "Schools",
   "CALCULATOR_CATEGORY_SUPERMARKET": "Supermarkets and Hypermarkets",
   "CALCULATOR_CATEGORY_VENUE": "Venues and Events",
 

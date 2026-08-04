@@ -11,8 +11,7 @@ export type BusinessCategoryId =
   | 'household'
   | 'fullServiceRestaurant'
   | 'limitedServiceRestaurant'
-  | 'elementarySchool'
-  | 'secondarySchool'
+  | 'school'
   | 'supermarket'
   | 'venue';
 
