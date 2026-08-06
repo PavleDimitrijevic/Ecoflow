@@ -231,7 +231,7 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'method';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.scrollToTopAfterStepChange();
   }
 
   goBack(): void {
@@ -287,7 +287,7 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'result';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.scrollToTopAfterStepChange();
   }
 
   startAgain(): void {
@@ -301,7 +301,7 @@ export class CalculatorComponent implements OnInit {
     this.result = null;
     this.hasSubmittedStepTwo = false;
     this.currentStep = 'category';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.scrollToTopAfterStepChange();
   }
 
   getControlErrorKey(
@@ -341,6 +341,23 @@ export class CalculatorComponent implements OnInit {
     }
 
     return null;
+  }
+
+  private scrollToTopAfterStepChange(): void {
+    const activeElement = document.activeElement;
+
+    if (activeElement instanceof HTMLElement) {
+      activeElement.blur();
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+    });
   }
 
   private getMethodsForCategory(
