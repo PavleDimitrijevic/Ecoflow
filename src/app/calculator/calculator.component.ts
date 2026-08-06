@@ -231,7 +231,7 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'method';
-    window.scrollTo({ top: 80, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   goBack(): void {
@@ -287,7 +287,7 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.currentStep = 'result';
-    window.scrollTo({ top: 80, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   startAgain(): void {
@@ -301,7 +301,7 @@ export class CalculatorComponent implements OnInit {
     this.result = null;
     this.hasSubmittedStepTwo = false;
     this.currentStep = 'category';
-    window.scrollTo({ top: 80, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   getControlErrorKey(
