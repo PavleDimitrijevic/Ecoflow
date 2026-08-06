@@ -199,7 +199,7 @@ export const CALCULATION_METHODS: Readonly<
   },
 };
 
-// TODO: Replace with confirmed Ecoflow/ORCA business factor before production release.
+// TODO: Replace with confirmed Ecoflow business factor.
 export const WASTE_FACTORS: Readonly<
   Record<Exclude<CalculationMethodId, 'meals' | 'knownDailyWaste'>, number>
 > = {

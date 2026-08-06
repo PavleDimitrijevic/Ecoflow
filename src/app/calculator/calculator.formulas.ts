@@ -60,9 +60,7 @@ export function normalizeNumericValue(
 
 export function roundWasteValue(value: number, decimals: number = 1): number {
   const factor = 10 ** decimals;
-  const rounded = Math.round((value + Number.EPSILON) * factor) / factor;
-
-  return Number.isInteger(rounded) ? rounded : rounded;
+  return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
 function getQuantityLimit(methodId: CalculationMethodId) {
@@ -174,7 +172,10 @@ export function calculateCalculatorResult(
     return null;
   }
 
-  const periods = calculateWastePeriods(dailyWasteKg, input.operatingDaysPerWeek);
+  const periods = calculateWastePeriods(
+    dailyWasteKg,
+    input.operatingDaysPerWeek,
+  );
 
   if (!periods) {
     return null;
