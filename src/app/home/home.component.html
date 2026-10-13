@@ -1,223 +1,231 @@
-<header id="home" class="home__header">
-  <div class="header__content">
-    <h1>
+<section id="home" class="hero">
+  <picture class="hero__media">
+    <source media="(max-width: 48rem)" srcset="/images/headerImage31.png" />
+    <img
+      src="/images/headerImage3.png"
+      alt=""
+      width="2304"
+      height="1536"
+      fetchpriority="high"
+    />
+  </picture>
+
+  <div class="hero__content">
+    <h1 class="hero__title">
       <span>{{ "HOME_TITLE_PART1" | translate }}</span>
       <span>{{ "HOME_TITLE_PART2" | translate }}</span>
     </h1>
 
-    <h3>
-      <span>{{ "HOME_SUBTITLE_PART1" | translate }}</span>
-      <span>{{ "HOME_SUBTITLE_PART2" | translate }}</span>
-    </h3>
-    <button class="header__btn" routerLink="/products">
-      {{ "HOME_BUTTON" | translate }}
-    </button>
-  </div>
-</header>
+    <p class="hero__subtitle">
+      {{ "HOME_SUBTITLE_PART1" | translate }}
+      {{ "HOME_SUBTITLE_PART2" | translate }}
+    </p>
 
-<section class="section" id="section--technology">
-  <div class="section__title">
-    <h2 class="section__description">{{ "TECH_TITLE" | translate }}</h2>
-    <h3 class="section__header">{{ "TECH_SUBTITLE" | translate }}</h3>
-  </div>
-
-  <div class="technology__container">
-    <div class="tech-image-wrapper">
-      <div class="technology__image">
-        <img [src]="technologyImage" alt="Technology chart" />
-      </div>
-    </div>
-    <div class="technology__content">
-      <h2 class="technology__title">{{ "TECH_CONTENT_TITLE" | translate }}</h2>
-      <p class="technology__subtitle">
-        {{ "TECH_CONTENT_SUBTITLE" | translate }}
-      </p>
-
-      <ul class="technology__list">
-        <li class="technology__item">
-          <span class="technology__icon" aria-hidden="true"></span>
-          <div>
-            <h3>{{ "TECH_ITEM1_TITLE" | translate }}</h3>
-            <p>{{ "TECH_ITEM1_DESC" | translate }}</p>
-          </div>
-        </li>
-        <li class="technology__item">
-          <span class="technology__icon" aria-hidden="true"></span>
-          <div>
-            <h3>{{ "TECH_ITEM2_TITLE" | translate }}</h3>
-            <p>{{ "TECH_ITEM2_DESC" | translate }}</p>
-          </div>
-        </li>
-        <li class="technology__item">
-          <span class="technology__icon" aria-hidden="true"></span>
-          <div>
-            <h3>{{ "TECH_ITEM3_TITLE" | translate }}</h3>
-            <p>{{ "TECH_ITEM3_DESC" | translate }}</p>
-          </div>
-        </li>
-        <li class="technology__item">
-          <span class="technology__icon" aria-hidden="true"></span>
-          <div>
-            <h3>{{ "TECH_ITEM4_TITLE" | translate }}</h3>
-            <p>{{ "TECH_ITEM4_DESC" | translate }}</p>
-          </div>
-        </li>
-      </ul>
+    <div class="hero__actions">
+      <a class="btn btn--accent btn--lg" routerLink="/products">
+        {{ "HOME_BUTTON" | translate }}
+      </a>
+      <a class="btn btn--on-dark btn--lg" routerLink="/calculator">
+        {{ "CALCULATOR_PAGE_TITLE" | translate }}
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="section--products">
-  <div class="section__title">
-    <h2 class="section__description">{{ "PRODUCTS_TITLE" | translate }}</h2>
-    <h3 class="section__header">{{ "PRODUCTS_SUBTITLE" | translate }}</h3>
-  </div>
-  <div class="productsWrapper">
-    <div class="products__grid">
-      <div
-        class="product__card"
-        [routerLink]="'/products'"
-        [fragment]="'griffon-50'"
-      >
-        <img src="/images/gr50.png" alt="Griffon digester G-50" />
-        <div class="product__content">
-          <h3>
-            {{ "PRODUCT1_TITLE" | translate }} <span class="arrow">›</span>
-          </h3>
-          <p>{{ "PRODUCT1_CAPACITY" | translate }}</p>
-          <p>{{ "PRODUCT1_MORE" | translate }}</p>
-        </div>
+<section class="tech" id="section--technology" appReveal>
+  <div class="container">
+    <div class="tech__intro">
+      <div>
+        <h2 class="section-title">{{ "TECH_TITLE" | translate }}</h2>
+        <p class="section-lead">{{ "TECH_SUBTITLE" | translate }}</p>
       </div>
-
-      <div
-        class="product__card"
-        [routerLink]="'/products'"
-        [fragment]="'griffon-150'"
-      >
-        <img src="/images/gr150.png" alt="Griffon digester G-150" />
-        <div class="product__content">
-          <h3>
-            {{ "PRODUCT2_TITLE" | translate }} <span class="arrow">›</span>
-          </h3>
-          <p>{{ "PRODUCT2_CAPACITY" | translate }}</p>
-          <p>{{ "PRODUCT2_MORE" | translate }}</p>
-        </div>
-      </div>
-
-      <div
-        class="product__card"
-        [routerLink]="'/products'"
-        [fragment]="'griffon-250'"
-      >
-        <img src="/images/gr250.png" alt="Griffon digester G-250" />
-        <div class="product__content">
-          <h3>
-            {{ "PRODUCT3_TITLE" | translate }} <span class="arrow">›</span>
-          </h3>
-          <p>{{ "PRODUCT3_CAPACITY" | translate }}</p>
-          <p>{{ "PRODUCT3_MORE" | translate }}</p>
-        </div>
-      </div>
-
-      <div
-        class="product__card"
-        [routerLink]="'/products'"
-        [fragment]="'griffon-500'"
-      >
-        <img src="/images/gr500.png" alt="Griffon digester G-500" />
-        <div class="product__content">
-          <h3>
-            {{ "PRODUCT4_TITLE" | translate }} <span class="arrow">›</span>
-          </h3>
-          <p>{{ "PRODUCT4_CAPACITY" | translate }}</p>
-          <p>{{ "PRODUCT4_MORE" | translate }}</p>
-        </div>
-      </div>
-
-      <div
-        class="product__card"
-        [routerLink]="'/products'"
-        [fragment]="'griffon-1000'"
-      >
-        <img src="/images/gr1000.png" alt="Griffon digester G-1000" />
-        <div class="product__content">
-          <h3>
-            {{ "PRODUCT5_TITLE" | translate }} <span class="arrow">›</span>
-          </h3>
-          <p>{{ "PRODUCT5_CAPACITY" | translate }}</p>
-          <p>{{ "PRODUCT5_MORE" | translate }}</p>
-        </div>
+      <div class="tech__summary">
+        <p class="tech__summary-title">
+          {{ "TECH_CONTENT_TITLE" | translate }}
+        </p>
+        <p class="tech__summary-text">
+          {{ "TECH_CONTENT_SUBTITLE" | translate }}
+        </p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section" id="section--benefits">
-  <div class="section__title">
-    <h2 class="section__description">{{ "BENEFITS_TITLE" | translate }}</h2>
-    <h3 class="section__header">{{ "BENEFITS_SUBTITLE" | translate }}</h3>
-  </div>
+    <ol class="tech__steps">
+      <li class="tech__step">
+        <span class="tech__marker" aria-hidden="true">
+          <svg class="tech__icon" viewBox="0 0 24 24">
+            <path
+              class="tech__anim-load"
+              d="M12 2.5v4.2M10.1 4.9 12 6.8l1.9-1.9"
+            />
+            <rect x="4" y="10" width="16" height="9" rx="1" />
+            <path d="M12.5 10v9M6.8 13h2.6M7 19v1.8M17 19v1.8" />
+          </svg>
+        </span>
+        <div class="tech__step-body">
+          <h3 class="tech__step-title">{{ "TECH_ITEM1_TITLE" | translate }}</h3>
+          <p class="tech__step-text">{{ "TECH_ITEM1_DESC" | translate }}</p>
+        </div>
+      </li>
 
-  <div class="benefits__grid">
-    <div class="benefit__card">
-      <span class="benefit__icon">🏭</span>
-      <h3>{{ "BENEFIT1_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT1_DESC" | translate }}</p>
-    </div>
+      <li class="tech__step">
+        <span class="tech__marker" aria-hidden="true">
+          <svg class="tech__icon" viewBox="0 0 24 24">
+            <g class="tech__anim-wiggle">
+              <rect
+                x="3"
+                y="10.5"
+                width="12"
+                height="7"
+                rx="3.5"
+                transform="rotate(-18 9 14)"
+              />
+              <path d="M7.2 14.6h.01M10.6 13.4h.01M4 18.6c-.9.8-.9 1.9 0 2.7" />
+            </g>
+            <circle class="tech__anim-bubble" cx="18.3" cy="6.2" r="2.2" />
+            <circle
+              class="tech__anim-bubble tech__anim-bubble--late"
+              cx="20.3"
+              cy="12.2"
+              r="1.2"
+            />
+          </svg>
+        </span>
+        <div class="tech__step-body">
+          <h3 class="tech__step-title">{{ "TECH_ITEM2_TITLE" | translate }}</h3>
+          <p class="tech__step-text">{{ "TECH_ITEM2_DESC" | translate }}</p>
+        </div>
+      </li>
 
-    <div class="benefit__card">
-      <span class="benefit__icon">🥗</span>
-      <h3>{{ "BENEFIT2_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT2_DESC" | translate }}</p>
-    </div>
+      <li class="tech__step">
+        <span class="tech__marker" aria-hidden="true">
+          <svg class="tech__icon tech__anim-spin" viewBox="0 0 24 24">
+            <path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9" />
+            <path d="M18.6 3.4v3.9h-3.9M5.4 20.6v-3.9h3.9" />
+          </svg>
+        </span>
+        <div class="tech__step-body">
+          <h3 class="tech__step-title">{{ "TECH_ITEM3_TITLE" | translate }}</h3>
+          <p class="tech__step-text">{{ "TECH_ITEM3_DESC" | translate }}</p>
+        </div>
+      </li>
 
-    <div class="benefit__card">
-      <span class="benefit__icon">🚚</span>
-      <h3>{{ "BENEFIT3_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT3_DESC" | translate }}</p>
-    </div>
-
-    <div class="benefit__card">
-      <span class="benefit__icon">🌍</span>
-      <h3>{{ "BENEFIT4_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT4_DESC" | translate }}</p>
-    </div>
-
-    <div class="benefit__card">
-      <span class="benefit__icon">🚫</span>
-      <h3>{{ "BENEFIT5_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT5_DESC" | translate }}</p>
-    </div>
-
-    <div class="benefit__card">
-      <span class="benefit__icon">💼</span>
-      <h3>{{ "BENEFIT6_TITLE" | translate }}</h3>
-      <p>{{ "BENEFIT6_DESC" | translate }}</p>
-    </div>
+      <li class="tech__step">
+        <span class="tech__marker" aria-hidden="true">
+          <svg class="tech__icon" viewBox="0 0 24 24">
+            <g class="tech__anim-drop">
+              <path
+                d="M12 3.5c3.2 3.8 5.5 6.8 5.5 9.9a5.5 5.5 0 0 1-11 0c0-3.1 2.3-6.1 5.5-9.9z"
+              />
+              <path d="M9.6 14a2.6 2.6 0 0 0 2 2.4" />
+            </g>
+          </svg>
+        </span>
+        <div class="tech__step-body">
+          <h3 class="tech__step-title">{{ "TECH_ITEM4_TITLE" | translate }}</h3>
+          <p class="tech__step-text">{{ "TECH_ITEM4_DESC" | translate }}</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="section" id="section--industries">
-  <div class="industries__container">
-    <div class="industries__content">
-      <h2 class="industries__title">{{ "INDUSTRIES_TITLE" | translate }}</h2>
-      <p class="industries__subtitle">{{ "INDUSTRIES_DESC" | translate }}</p>
-      <button class="industries__btn" routerLink="/contact">
+<section class="lineup" id="section--products" appReveal>
+  <div class="container">
+    <h2 class="section-title">{{ "PRODUCTS_TITLE" | translate }}</h2>
+    <p class="section-lead">{{ "PRODUCTS_SUBTITLE" | translate }}</p>
+
+    <ul class="lineup__grid">
+      <li *ngFor="let product of products">
+        <a
+          class="lineup__card"
+          routerLink="/products"
+          [fragment]="product.fragment"
+        >
+          <span class="lineup__media">
+            <img
+              [src]="product.image"
+              [alt]="'PRODUCT' + product.index + '_TITLE' | translate"
+              loading="lazy"
+            />
+          </span>
+          <span class="lineup__body">
+            <span class="lineup__name">
+              {{ "PRODUCT" + product.index + "_TITLE" | translate }}
+            </span>
+            <span class="lineup__capacity">
+              {{ "PRODUCT" + product.index + "_CAPACITY" | translate }}
+            </span>
+            <span class="lineup__gauge" aria-hidden="true">
+              <span
+                class="lineup__gauge-fill"
+                [style.width.%]="product.capacityShare"
+              ></span>
+            </span>
+            <span class="lineup__more">
+              {{ "PRODUCT" + product.index + "_MORE" | translate }}
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="lineup__note">{{ "PRODUCT_NOTE" | translate }}</p>
+  </div>
+</section>
+
+<section class="benefits" id="section--benefits" appReveal>
+  <div class="container benefits__layout">
+    <div class="benefits__intro">
+      <h2 class="section-title">{{ "BENEFITS_TITLE" | translate }}</h2>
+      <p class="section-lead">{{ "BENEFITS_SUBTITLE" | translate }}</p>
+    </div>
+
+    <ul class="benefits__list">
+      <li class="benefits__item" *ngFor="let benefit of benefits">
+        <span class="benefits__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path [attr.d]="benefit.icon" />
+          </svg>
+        </span>
+        <div>
+          <h3 class="benefits__title">
+            {{ "BENEFIT" + benefit.index + "_TITLE" | translate }}
+          </h3>
+          <p class="benefits__text">
+            {{ "BENEFIT" + benefit.index + "_DESC" | translate }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="industries" id="section--industries" appReveal>
+  <div class="container industries__layout">
+    <div class="industries__intro">
+      <h2 class="section-title">{{ "INDUSTRIES_TITLE" | translate }}</h2>
+      <p class="section-lead">{{ "INDUSTRIES_DESC" | translate }}</p>
+      <a class="btn btn--primary btn--lg industries__cta" routerLink="/contact">
         {{ "INDUSTRIES_BUTTON" | translate }}
-      </button>
+      </a>
     </div>
 
-    <div class="industries__image">
-      <img [src]="industriesImage" alt="Industries we serve" />
-    </div>
+    <img
+      class="industries__image"
+      [src]="industriesImage"
+      [alt]="'INDUSTRIES_IMAGE_ALT' | translate"
+      width="1100"
+      height="1100"
+      loading="lazy"
+    />
   </div>
 </section>
 
-<section class="section section--explore" id="section--explore">
-  <div class="section__title">
-    <h3 class="section__header">{{ "EXPLORE_SUBTITLE" | translate }}</h3>
+<section class="explore" id="section--explore" appReveal>
+  <div class="container explore__layout">
+    <h2 class="explore__title">{{ "EXPLORE_SUBTITLE" | translate }}</h2>
+    <a class="btn btn--accent btn--lg" routerLink="/products">
+      {{ "EXPLORE_BUTTON" | translate }}
+    </a>
   </div>
-  <button class="header__btn" routerLink="/products">
-    {{ "EXPLORE_BUTTON" | translate }}
-  </button>
 </section>

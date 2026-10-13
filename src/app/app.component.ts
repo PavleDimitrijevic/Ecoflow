@@ -38,6 +38,7 @@ export class AppComponent {
     translate.use(this.currentLang);
 
     this.languageService.setLang(this.currentLang); // inicijalizuj servis
+    document.documentElement.lang = this.currentLang;
   }
 
   toggleLang() {
@@ -45,5 +46,6 @@ export class AppComponent {
     this.translate.use(this.currentLang);
     this.languageService.setLang(this.currentLang); // update servis
     localStorage.setItem('lang', this.currentLang);
+    document.documentElement.lang = this.currentLang;
   }
 }

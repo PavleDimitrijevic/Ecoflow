@@ -1,64 +1,133 @@
-<nav class="nav" [class.sticky]="isSticky">
-  <a routerLink="/home" fragment="home">
-    <img
-      src="/images/ecoflowLogo.png"
-      alt="Ecoflow logo"
-      class="nav__logo"
-      id="logo"
-    />
-  </a>
+<header class="nav" [class.nav--scrolled]="isScrolled">
+  <div class="nav__inner container">
+    <a
+      class="nav__brand"
+      routerLink="/home"
+      fragment="home"
+      (click)="closeMenu()"
+    >
+      <img
+        src="/images/ecoflowLogo.png"
+        alt="Eco Flow"
+        class="nav__logo"
+        width="712"
+        height="278"
+      />
+    </a>
 
-  <ul class="nav__links">
-    <li class="nav__item">
-      <a class="nav__link" routerLink="/home" fragment="home">{{
-        "NAV_HOME" | translate
-      }}</a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" routerLink="/home" fragment="section--technology">{{
-        "NAV_TECHNOLOGY" | translate
-      }}</a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" routerLink="/products">{{
-        "NAV_PRODUCTS" | translate
-      }}</a>
-    </li>
-    <li class="nav__item">
-      <a
-        class="nav__link"
-        routerLink="/calculator"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >{{ "NAV_CALCULATOR" | translate }}</a
+    <button
+      type="button"
+      class="nav__toggle"
+      aria-controls="nav-menu"
+      [attr.aria-expanded]="isMenuOpen"
+      [attr.aria-label]="
+        (isMenuOpen ? 'NAV_MENU_CLOSE' : 'NAV_MENU_OPEN') | translate
+      "
+      (click)="toggleMenu()"
+    >
+      <svg
+        class="nav__toggle-icon"
+        [class.nav__toggle-icon--open]="isMenuOpen"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        aria-hidden="true"
       >
-    </li>
-    <li class="nav__item mobile_hidden">
-      <a class="nav__link" routerLink="/home" fragment="section--benefits">{{
-        "NAV_BENEFITS" | translate
-      }}</a>
-    </li>
-    <li class="nav__item mobile_hidden">
-      <a class="nav__link" routerLink="/home" fragment="section--industries">{{
-        "NAV_INDUSTRIES" | translate
-      }}</a>
-    </li>
-    <li class="nav__item">
-      <button
-        class="nav__link nav__link--btn btn--contact"
-        routerLink="/contact"
-      >
-        {{ "NAV_CONTACT" | translate }}
-      </button>
-    </li>
-    <li class="nav__item nav__item--lang">
-      <button
-        class="nav__link nav__link--btn lang-btn"
-        [ngClass]="langClass"
-        (click)="onToggleLang()"
-      >
-        {{ currentLang === "en" ? "EN" : "SR" }}
-      </button>
-    </li>
-  </ul>
-</nav>
+        <path class="nav__toggle-line nav__toggle-line--top" d="M4 7h16" />
+        <path class="nav__toggle-line nav__toggle-line--middle" d="M4 12h16" />
+        <path class="nav__toggle-line nav__toggle-line--bottom" d="M4 17h16" />
+      </svg>
+    </button>
+
+    <nav
+      id="nav-menu"
+      class="nav__menu"
+      [class.nav__menu--open]="isMenuOpen"
+      [attr.aria-label]="'NAV_MAIN_LABEL' | translate"
+    >
+      <ul class="nav__links">
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/home"
+            fragment="home"
+            (click)="closeMenu()"
+            >{{ "NAV_HOME" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/home"
+            fragment="section--technology"
+            (click)="closeMenu()"
+            >{{ "NAV_TECHNOLOGY" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/products"
+            routerLinkActive="nav__link--active"
+            (click)="closeMenu()"
+            >{{ "NAV_PRODUCTS" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/calculator"
+            routerLinkActive="nav__link--active"
+            (click)="closeMenu()"
+            >{{ "NAV_CALCULATOR" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/home"
+            fragment="section--benefits"
+            (click)="closeMenu()"
+            >{{ "NAV_BENEFITS" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav__link"
+            routerLink="/home"
+            fragment="section--industries"
+            (click)="closeMenu()"
+            >{{ "NAV_INDUSTRIES" | translate }}</a
+          >
+        </li>
+      </ul>
+
+      <div class="nav__actions">
+        <button
+          type="button"
+          class="lang-switch"
+          [attr.aria-label]="'NAV_LANG_SWITCH' | translate"
+          (click)="onToggleLang()"
+        >
+          <span
+            class="lang-switch__option"
+            [class.lang-switch__option--active]="currentLang === 'sr'"
+            >SR</span
+          >
+          <span
+            class="lang-switch__option"
+            [class.lang-switch__option--active]="currentLang === 'en'"
+            >EN</span
+          >
+        </button>
+
+        <a
+          class="btn btn--primary nav__contact"
+          routerLink="/contact"
+          (click)="closeMenu()"
+          >{{ "NAV_CONTACT" | translate }}</a
+        >
+      </div>
+    </nav>
+  </div>
+</header>

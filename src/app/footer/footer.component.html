@@ -1,15 +1,54 @@
 <footer class="footer">
-  <div class="footer__container">
-    <img src="/images/ecoflowLogo.png" alt="Logo" class="footer__logo" />
-    <div class="footer__content">
-      <!-- About us -->
-      <div class="footer__section">
-        <h3 class="footer__title">{{ "FOOTER_ABOUT_TITLE" | translate }}</h3>
-        <ul class="footer__list">
-          <li>{{ "FOOTER_ABOUT_COMPANY" | translate }}</li>
-          <li>{{ "FOOTER_ABOUT_LOCATION" | translate }}</li>
-        </ul>
+  <div class="container">
+    <div class="footer__grid">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a routerLink="/home" fragment="home" class="footer__logo-link">
+          <img
+            src="/images/ecoflowLogo.png"
+            alt="Eco Flow"
+            class="footer__logo"
+            width="712"
+            height="278"
+            loading="lazy"
+          />
+        </a>
+        <p class="footer__company">
+          {{ "FOOTER_ABOUT_COMPANY" | translate }}<br />
+          {{ "FOOTER_ABOUT_LOCATION" | translate }}
+        </p>
       </div>
+
+      <!-- Navigation -->
+      <nav
+        class="footer__section"
+        [attr.aria-label]="'FOOTER_NAV_TITLE' | translate"
+      >
+        <h3 class="footer__title">{{ "FOOTER_NAV_TITLE" | translate }}</h3>
+        <ul class="footer__list">
+          <li>
+            <a routerLink="/home" fragment="section--technology">{{
+              "NAV_TECHNOLOGY" | translate
+            }}</a>
+          </li>
+          <li>
+            <a routerLink="/products">{{ "NAV_PRODUCTS" | translate }}</a>
+          </li>
+          <li>
+            <a routerLink="/calculator">{{ "NAV_CALCULATOR" | translate }}</a>
+          </li>
+          <li>
+            <a routerLink="/home" fragment="section--benefits">{{
+              "NAV_BENEFITS" | translate
+            }}</a>
+          </li>
+          <li>
+            <a routerLink="/home" fragment="section--industries">{{
+              "NAV_INDUSTRIES" | translate
+            }}</a>
+          </li>
+        </ul>
+      </nav>
 
       <!-- Contact -->
       <div class="footer__section">
@@ -36,11 +75,15 @@
       <!-- Terms -->
       <div class="footer__section">
         <h3 class="footer__title">{{ "FOOTER_TERMS_TITLE" | translate }}</h3>
-        <ul class="footer__list footer_terms">
+        <ul class="footer__list">
           <li>{{ "FOOTER_TERMS_PRIVACY" | translate }}</li>
           <li>{{ "FOOTER_TERMS_IMPRESSUM" | translate }}</li>
         </ul>
       </div>
     </div>
+
+    <p class="footer__legal">
+      &copy; {{ year }} {{ "FOOTER_ABOUT_COMPANY" | translate }}
+    </p>
   </div>
 </footer>
