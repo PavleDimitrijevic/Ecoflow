@@ -1,40 +1,68 @@
 <section class="contact">
-  <div class="contact-left">
-    <h5>{{ "CONTACT_TITLE" | translate }} ›</h5>
-    <p>{{ "CONTACT_SUBTITLE" | translate }}</p>
-  </div>
-
-  <div class="contact-right">
-    <div class="contact-panel">
-      <div class="info-row">
-        <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
-        <div class="info-text">
-          <h4>{{ "CONTACT_EMAIL_TITLE" | translate }}</h4>
-          <p>
-            <a href="mailto:office&#64;ecoflowdoo.rs"
-              >office&#64;ecoflowdoo.rs</a
-            >
-          </p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-        <div class="info-text">
-          <h4>{{ "CONTACT_PHONE_TITLE" | translate }}</h4>
-          <p><a href="tel:+381646113058">+381 64 6113 058</a></p>
-          <p><a href="tel:+381691100501">+381 69 1100 501</a></p>
-          <p><a href="tel:+381691100504">+381 69 1100 504</a></p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="info-text">
-          <h4>{{ "CONTACT_ADDRESS_TITLE" | translate }}</h4>
-          <p>{{ "CONTACT_ADDRESS" | translate }}</p>
-        </div>
-      </div>
+  <div class="container contact__layout">
+    <div class="contact__intro">
+      <h1 class="section-title">{{ "CONTACT_TITLE" | translate }}</h1>
+      <p class="section-lead">{{ "CONTACT_SUBTITLE" | translate }}</p>
     </div>
+
+    <ul class="contact__list">
+      <li class="contact__item">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3.5 7l8.5 6 8.5-6" />
+          </svg>
+        </span>
+        <div>
+          <h2 class="contact__label">
+            {{ "CONTACT_EMAIL_TITLE" | translate }}
+          </h2>
+          <a class="contact__value" href="mailto:office&#64;ecoflowdoo.rs"
+            >office&#64;ecoflowdoo.rs</a
+          >
+        </div>
+      </li>
+
+      <li class="contact__item">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M6.5 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5a2 2 0 0 1 2-2z"
+            />
+          </svg>
+        </span>
+        <div>
+          <h2 class="contact__label">
+            {{ "CONTACT_PHONE_TITLE" | translate }}
+          </h2>
+          <a class="contact__value" href="tel:+381646113058"
+            >+381 64 6113 058</a
+          >
+          <a class="contact__value" href="tel:+381691100501"
+            >+381 69 1100 501</a
+          >
+          <a class="contact__value" href="tel:+381691100504"
+            >+381 69 1100 504</a
+          >
+        </div>
+      </li>
+
+      <li class="contact__item">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 21c4-4.5 6.5-7.8 6.5-11a6.5 6.5 0 0 0-13 0c0 3.2 2.5 6.5 6.5 11z"
+            />
+            <circle cx="12" cy="10" r="2.5" />
+          </svg>
+        </span>
+        <div>
+          <h2 class="contact__label">
+            {{ "CONTACT_ADDRESS_TITLE" | translate }}
+          </h2>
+          <p class="contact__value">{{ "CONTACT_ADDRESS" | translate }}</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
