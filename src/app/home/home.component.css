@@ -1,6 +1,8 @@
 /*GENERAL ELEMENTS*/
 #home,
 #section--technology,
+#section--products,
+#section--calculator,
 #section--benefits,
 #section--industries {
   scroll-margin-top: 6rem;
@@ -570,6 +572,68 @@
   .lineup__body {
     border-left: 0;
     border-top: 0.0625rem solid var(--steel-100);
+  }
+}
+
+/* CALCULATOR SECTION */
+.sizing {
+  padding-block: var(--section-space);
+  background-color: var(--color-surface-card);
+}
+
+.sizing__layout {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.sizing__cta {
+  margin-top: var(--space-8);
+}
+
+/* the three things the calculator asks for, in order */
+.sizing__steps {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sizing__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-page);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+.sizing__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-on-inverse);
+}
+
+.sizing__step:last-child .sizing__number {
+  background-color: var(--color-accent);
+  color: var(--navy-900);
+}
+
+@media (min-width: 64rem) {
+  .sizing__layout {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
   }
 }
 

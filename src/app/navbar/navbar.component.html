@@ -103,6 +103,13 @@
       </ul>
 
       <div class="nav__actions">
+        <a
+          class="btn btn--primary nav__contact"
+          routerLink="/contact"
+          (click)="closeMenu()"
+          >{{ "NAV_CONTACT" | translate }}</a
+        >
+
         <button
           type="button"
           class="lang-switch"
@@ -120,13 +127,6 @@
             >EN</span
           >
         </button>
-
-        <a
-          class="btn btn--primary nav__contact"
-          routerLink="/contact"
-          (click)="closeMenu()"
-          >{{ "NAV_CONTACT" | translate }}</a
-        >
       </div>
     </nav>
   </div>
