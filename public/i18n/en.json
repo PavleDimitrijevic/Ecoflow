@@ -162,6 +162,7 @@
   "CALCULATOR_CALCULATE": "Calculate",
   "CALCULATOR_START_AGAIN": "Start again",
   "CALCULATOR_RESULT_TITLE": "Estimated food waste",
+  "CALCULATOR_RESULT_EMPTY": "Choose a category and enter your values on the left. The estimate appears here as soon as the details are complete.",
   "CALCULATOR_ESTIMATED_WASTE": "Based on your input, here is the estimated quantity of food waste your site may generate.",
   "CALCULATOR_DAILY": "kg/day",
   "CALCULATOR_WEEKLY": "kg/week",

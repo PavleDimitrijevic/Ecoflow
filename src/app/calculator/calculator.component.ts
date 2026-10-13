@@ -26,7 +26,6 @@ import {
   CalculatorResult,
   BusinessCategoryId,
   CategoryConfig,
-  WizardStep,
 } from './calculator.models';
 
 type CalculatorFormGroup = FormGroup<{
@@ -95,7 +94,6 @@ export class CalculatorComponent implements OnInit {
   readonly categories = CATEGORY_CONFIGS;
   readonly methodConfigs = CALCULATION_METHODS;
   readonly operatingDaysLimits = OPERATING_DAYS_LIMITS;
-  readonly steps: readonly WizardStep[] = ['category', 'method', 'result'];
 
   readonly form: CalculatorFormGroup = new FormGroup({
     category: new FormControl<BusinessCategoryId | null>(null, {
@@ -120,16 +118,12 @@ export class CalculatorComponent implements OnInit {
     ),
   });
 
-  currentStep: WizardStep = 'category';
   result: CalculatorResult | null = null;
-  hasSubmittedStepTwo = false;
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'auto' });
 
     this.form.controls.category.valueChanges.subscribe((categoryId) => {
-      this.result = null;
-
       if (!categoryId) {
         this.form.controls.method.reset(null, { emitEvent: false });
         this.form.controls.quantity.reset(null, { emitEvent: false });
@@ -143,14 +137,14 @@ export class CalculatorComponent implements OnInit {
         !selectedMethod ||
         !availableMethods.some((method) => method.id === selectedMethod)
       ) {
-        this.form.controls.method.reset(null);
+        // a category with a single method needs no second choice
+        this.form.controls.method.reset(
+          availableMethods.length === 1 ? availableMethods[0].id : null,
+        );
       }
     });
 
     this.form.controls.method.valueChanges.subscribe((methodId) => {
-      this.result = null;
-      this.hasSubmittedStepTwo = false;
-
       const quantityControl = this.form.controls.quantity;
 
       if (!methodId) {
@@ -176,6 +170,9 @@ export class CalculatorComponent implements OnInit {
       quantityControl.reset(null, { emitEvent: false });
       quantityControl.updateValueAndValidity({ emitEvent: false });
     });
+
+    // the result follows the form: every change recalculates it
+    this.form.valueChanges.subscribe(() => this.recalculate());
   }
 
   get selectedCategory(): CategoryConfig | null {
@@ -208,86 +205,12 @@ export class CalculatorComponent implements OnInit {
     return this.selectedMethod?.integerOnly ? 'numeric' : 'decimal';
   }
 
-  isStepActive(step: WizardStep): boolean {
-    return this.currentStep === step;
-  }
-
-  isStepCompleted(step: WizardStep): boolean {
-    return this.steps.indexOf(step) < this.steps.indexOf(this.currentStep);
-  }
-
   isCategorySelected(categoryId: BusinessCategoryId): boolean {
     return this.form.controls.category.value === categoryId;
   }
 
   isMethodSelected(methodId: CalculationMethodId): boolean {
     return this.form.controls.method.value === methodId;
-  }
-
-  continueToMethodStep(): void {
-    if (this.form.controls.category.invalid) {
-      this.form.controls.category.markAsTouched();
-      return;
-    }
-
-    this.currentStep = 'method';
-    this.scrollToTopAfterStepChange();
-  }
-
-  goBack(): void {
-    if (this.currentStep === 'result') {
-      this.currentStep = 'method';
-      return;
-    }
-
-    this.currentStep = 'category';
-  }
-
-  calculate(): void {
-    this.hasSubmittedStepTwo = true;
-
-    this.form.controls.method.markAsTouched();
-    this.form.controls.quantity.markAsTouched();
-    this.form.controls.operatingDaysPerWeek.markAsTouched();
-
-    if (!this.selectedMethod || this.form.controls.method.invalid) {
-      return;
-    }
-
-    if (
-      this.form.controls.quantity.invalid ||
-      this.form.controls.operatingDaysPerWeek.invalid ||
-      this.form.controls.category.invalid
-    ) {
-      return;
-    }
-
-    const formValue = this.form.getRawValue();
-
-    if (
-      !formValue.category ||
-      !formValue.method ||
-      formValue.quantity === null ||
-      formValue.operatingDaysPerWeek === null
-    ) {
-      return;
-    }
-
-    const input: CalculatorInput = {
-      categoryId: formValue.category,
-      methodId: formValue.method,
-      quantity: formValue.quantity,
-      operatingDaysPerWeek: formValue.operatingDaysPerWeek,
-    };
-
-    this.result = calculateCalculatorResult(input);
-
-    if (!this.result) {
-      return;
-    }
-
-    this.currentStep = 'result';
-    this.scrollToTopAfterStepChange();
   }
 
   startAgain(): void {
@@ -299,16 +222,13 @@ export class CalculatorComponent implements OnInit {
     });
 
     this.result = null;
-    this.hasSubmittedStepTwo = false;
-    this.currentStep = 'category';
-    this.scrollToTopAfterStepChange();
   }
 
   getControlErrorKey(
-    controlName: 'category' | 'method' | 'quantity' | 'operatingDaysPerWeek',
+    controlName: 'quantity' | 'operatingDaysPerWeek',
   ): string | null {
     const control = this.form.controls[controlName];
-    const shouldShow = control.touched || this.hasSubmittedStepTwo;
+    const shouldShow = control.touched || control.dirty;
 
     if (!shouldShow || !control.errors) {
       return null;
@@ -343,21 +263,28 @@ export class CalculatorComponent implements OnInit {
     return null;
   }
 
-  private scrollToTopAfterStepChange(): void {
-    const activeElement = document.activeElement;
+  private recalculate(): void {
+    const formValue = this.form.getRawValue();
 
-    if (activeElement instanceof HTMLElement) {
-      activeElement.blur();
+    if (
+      this.form.invalid ||
+      !formValue.category ||
+      !formValue.method ||
+      formValue.quantity === null ||
+      formValue.operatingDaysPerWeek === null
+    ) {
+      this.result = null;
+      return;
     }
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      });
-    });
+    const input: CalculatorInput = {
+      categoryId: formValue.category,
+      methodId: formValue.method,
+      quantity: formValue.quantity,
+      operatingDaysPerWeek: formValue.operatingDaysPerWeek,
+    };
+
+    this.result = calculateCalculatorResult(input);
   }
 
   private getMethodsForCategory(

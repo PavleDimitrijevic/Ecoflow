@@ -162,6 +162,7 @@
   "CALCULATOR_CALCULATE": "Izračunaj",
   "CALCULATOR_START_AGAIN": "Počni ponovo",
   "CALCULATOR_RESULT_TITLE": "Procenjena količina ostataka hrane",
+  "CALCULATOR_RESULT_EMPTY": "Izaberite kategoriju i unesite vrednosti sa leve strane. Procena se prikazuje ovde čim su podaci potpuni.",
   "CALCULATOR_ESTIMATED_WASTE": "Na osnovu unetih podataka, ovo je procenjena količina ostataka hrane koju vaš objekat može da generiše.",
   "CALCULATOR_DAILY": "kg/dan",
   "CALCULATOR_WEEKLY": "kg/nedelja",
