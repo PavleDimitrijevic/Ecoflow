@@ -457,7 +457,7 @@
 
 .lineup__card {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 8.75rem 1fr;
   height: 100%;
   border: 0.0625rem solid var(--color-border);
   border-radius: var(--radius-md);
@@ -475,26 +475,34 @@
   box-shadow: var(--shadow-md);
 }
 
+/* the product photos come on their own light backdrop and fill the frame edge to edge */
 .lineup__media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2);
-  background-color: var(--white);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-product-photo);
 }
 
+/* narrow: a thumbnail beside the text, as tall as the card. The whole machine is
+   shown; the long models simply sit smaller on the backdrop */
 .lineup__media img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: contain;
+  transition: transform 500ms var(--ease-out);
+}
+
+.lineup__card:hover .lineup__media img {
+  transform: scale(1.05);
 }
 
 .lineup__body {
   display: flex;
   flex-direction: column;
   padding: var(--space-4);
-  border-left: 0.0625rem solid var(--steel-100);
 }
 
 /* sized so "G-250" does not break at the hyphen in the narrow cards */
@@ -565,13 +573,16 @@
     grid-template-rows: auto 1fr;
   }
 
-  .lineup__media {
-    padding: var(--space-3);
+  /* wide: the photo on top, at the shape it was taken in */
+  .lineup__media img {
+    position: static;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
   }
 
   .lineup__body {
     border-left: 0;
-    border-top: 0.0625rem solid var(--steel-100);
   }
 }
 

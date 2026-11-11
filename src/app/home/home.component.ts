@@ -17,7 +17,7 @@ export class HomeComponent {
 
   // capacityShare: upper daily capacity as a share of the largest model (1200 kg)
   readonly products = [
-    { index: 1, fragment: 'griffon-70', image: '/images/gr50.png', capacityShare: 4 },
+    { index: 1, fragment: 'griffon-70', image: '/images/gr70.png', capacityShare: 4 },
     { index: 2, fragment: 'griffon-150', image: '/images/gr150.png', capacityShare: 17 },
     { index: 3, fragment: 'griffon-250', image: '/images/gr250.png', capacityShare: 25 },
     { index: 4, fragment: 'griffon-500', image: '/images/gr500.png', capacityShare: 50 },

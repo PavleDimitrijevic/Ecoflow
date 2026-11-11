@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -26,6 +26,7 @@ import {
   CalculatorResult,
   BusinessCategoryId,
   CategoryConfig,
+  WizardStep,
 } from './calculator.models';
 
 type CalculatorFormGroup = FormGroup<{
@@ -94,6 +95,9 @@ export class CalculatorComponent implements OnInit {
   readonly categories = CATEGORY_CONFIGS;
   readonly methodConfigs = CALCULATION_METHODS;
   readonly operatingDaysLimits = OPERATING_DAYS_LIMITS;
+  readonly steps: readonly WizardStep[] = ['category', 'method', 'result'];
+
+  @ViewChild('wizard') private wizard?: ElementRef<HTMLElement>;
 
   readonly form: CalculatorFormGroup = new FormGroup({
     category: new FormControl<BusinessCategoryId | null>(null, {
@@ -119,6 +123,11 @@ export class CalculatorComponent implements OnInit {
   });
 
   result: CalculatorResult | null = null;
+  currentStep: WizardStep = 'category';
+  // step 2 shows one card at a time: the method list, then the values for it
+  methodView: 'choose' | 'values' = 'choose';
+  // field errors stay hidden until the visitor first presses Calculate
+  submitAttempted = false;
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -153,6 +162,9 @@ export class CalculatorComponent implements OnInit {
         quantityControl.updateValueAndValidity({ emitEvent: false });
         return;
       }
+
+      // a new method brings a new empty field; don't greet it with an error
+      this.submitAttempted = false;
 
       const methodConfig = this.methodConfigs[methodId];
       const validators: ValidatorFn[] = [
@@ -197,12 +209,90 @@ export class CalculatorComponent implements OnInit {
     return methodId ? this.methodConfigs[methodId] : null;
   }
 
+  // photo of the recommended model, when the result names one
+  get resultPhoto(): { src: string; altKey?: string } | null {
+    const recommendation = this.result?.recommendation;
+
+    if (recommendation?.type !== 'model' || !recommendation.model.imagePath) {
+      return null;
+    }
+
+    return {
+      src: recommendation.model.imagePath,
+      altKey: recommendation.model.imageAltKey,
+    };
+  }
+
   get quantityInputStep(): number {
     return this.selectedMethod?.step ?? 1;
   }
 
   get quantityInputMode(): 'decimal' | 'numeric' {
     return this.selectedMethod?.integerOnly ? 'numeric' : 'decimal';
+  }
+
+  isStepActive(step: WizardStep): boolean {
+    return this.currentStep === step;
+  }
+
+  isStepCompleted(step: WizardStep): boolean {
+    return this.steps.indexOf(step) < this.steps.indexOf(this.currentStep);
+  }
+
+  continueToMethodStep(): void {
+    if (!this.selectedCategory) {
+      return;
+    }
+
+    this.methodView =
+      this.availableMethods.length === 1 && this.selectedMethod
+        ? 'values'
+        : 'choose';
+    this.goToStep('method');
+  }
+
+  showValues(): void {
+    this.methodView = 'values';
+
+    // once the values card has taken focus, put the cursor in its first field; on narrow
+    // screens the card sits below the methods, so bring it into view
+    setTimeout(() => {
+      document
+        .getElementById('calculator-quantity')
+        ?.focus({ preventScroll: true });
+      document
+        .querySelector('.calc__card--values')
+        ?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }, 450);
+  }
+
+  calculate(): void {
+    this.submitAttempted = true;
+
+    if (!this.result) {
+      return;
+    }
+
+    this.goToStep('result');
+  }
+
+  goBack(): void {
+    if (this.currentStep === 'result') {
+      this.methodView = 'values';
+      this.goToStep('method');
+      return;
+    }
+
+    if (
+      this.currentStep === 'method' &&
+      this.methodView === 'values' &&
+      this.availableMethods.length > 1
+    ) {
+      this.methodView = 'choose';
+      return;
+    }
+
+    this.goToStep('category');
   }
 
   isCategorySelected(categoryId: BusinessCategoryId): boolean {
@@ -222,15 +312,17 @@ export class CalculatorComponent implements OnInit {
     });
 
     this.result = null;
+    this.submitAttempted = false;
+    this.methodView = 'choose';
+    this.goToStep('category');
   }
 
   getControlErrorKey(
     controlName: 'quantity' | 'operatingDaysPerWeek',
   ): string | null {
     const control = this.form.controls[controlName];
-    const shouldShow = control.touched || control.dirty;
 
-    if (!shouldShow || !control.errors) {
+    if (!this.submitAttempted || !control.errors) {
       return null;
     }
 
@@ -261,6 +353,23 @@ export class CalculatorComponent implements OnInit {
     }
 
     return null;
+  }
+
+  // swaps the step in place; scrolls back only if the top of the calculator has left the screen
+  private goToStep(step: WizardStep): void {
+    this.currentStep = step;
+
+    const wizard = this.wizard?.nativeElement;
+    if (!wizard) {
+      return;
+    }
+
+    const navHeight = document.querySelector('.nav')?.getBoundingClientRect().height ?? 0;
+    const top = wizard.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+
+    if (window.scrollY > top) {
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   }
 
   private recalculate(): void {

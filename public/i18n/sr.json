@@ -157,6 +157,7 @@
   "CALCULATOR_METHOD_TITLE": "Izaberite način procene",
   "CALCULATOR_METHOD_DESCRIPTION": "Koristite podatak koji već najlakše imate. Procenu možete zasnovati na obrocima, broju ljudi, kapacitetu ili direktnom unosu kg/dan.",
   "CALCULATOR_INPUT_TITLE": "Unesite vrednosti",
+  "CALCULATOR_INPUT_WAITING": "Izaberite način procene, pa ovde unesite vrednosti.",
   "CALCULATOR_OPERATING_DAYS": "Broj aktivnih dana nedeljno",
   "CALCULATOR_CONTINUE": "Nastavi",
   "CALCULATOR_BACK": "Nazad",

@@ -12,8 +12,8 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ProductsComponent implements AfterViewInit {
   readonly products = [
-    { index: 1, id: 'griffon-70', code: 'G-70', image: '/images/gr50.png' },
-    { index: 2, id: 'griffon-150', code: 'G-150', image: '/images/gr150.1.png' },
+    { index: 1, id: 'griffon-70', code: 'G-70', image: '/images/gr70.png' },
+    { index: 2, id: 'griffon-150', code: 'G-150', image: '/images/gr150.png' },
     { index: 3, id: 'griffon-250', code: 'G-250', image: '/images/gr250.png' },
     { index: 4, id: 'griffon-500', code: 'G-500', image: '/images/gr500.png' },
     { index: 5, id: 'griffon-1000', code: 'G-1000', image: '/images/gr1000.png' },

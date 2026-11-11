@@ -224,7 +224,7 @@ export const GRIFFON_MODELS: readonly GriffonModel[] = [
     dimensionsValueKey: 'PRODUCT1_DIMENSIONS_VALUE',
     motorValueKey: 'PRODUCT1_MOTOR_VALUE',
     idealForKey: 'PRODUCT1_IDEAL_FOR',
-    imagePath: 'images/gr50.png',
+    imagePath: 'images/gr70.png',
     imageAltKey: 'CALCULATOR_PRODUCT1_IMAGE_ALT',
   },
   {

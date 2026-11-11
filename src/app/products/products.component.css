@@ -83,20 +83,19 @@
   scroll-margin-top: calc(var(--nav-height) + var(--space-4));
 }
 
+/* the photo sits on a panel the color of its own backdrop, so it has no visible edge */
 .model__media {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-6);
-  background-color: var(--white);
-  border-bottom: 0.0625rem solid var(--steel-100);
+  background-color: var(--color-product-photo);
 }
 
 .model__media img {
   display: block;
   width: 100%;
-  max-width: 30rem;
-  height: auto;
+  max-height: 28rem;
+  object-fit: contain;
 }
 
 .model__body {
@@ -202,10 +201,12 @@
     grid-template-columns: 5fr 7fr;
   }
 
-  .model__media {
-    padding: var(--space-10);
-    border-bottom: 0;
-    border-right: 0.0625rem solid var(--steel-100);
+  /* wide: the photo spans its column; the panel fills the rest of the card's height */
+  .model__media img {
+    max-height: none;
+    /* fade the top and bottom edges so the photo melts into the panel */
+    -webkit-mask-image: linear-gradient(transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(transparent, #000 6%, #000 94%, transparent);
   }
 
   .model__body {
@@ -218,8 +219,6 @@
 
   .model:nth-child(even) .model__media {
     order: 2;
-    border-right: 0;
-    border-left: 0.0625rem solid var(--steel-100);
   }
 
   .model__specs {

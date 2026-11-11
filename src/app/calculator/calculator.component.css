@@ -9,33 +9,125 @@
   color: var(--color-text-on-inverse-muted);
 }
 
-/* LAYOUT: choices on the left, live result on the right */
-.calc__layout {
-  display: grid;
-  gap: var(--space-8);
+/* WIZARD: one centered column, one step at a time */
+.calc__wizard {
+  max-width: 66rem;
   padding-block: var(--space-10) var(--section-space);
+  scroll-margin-top: var(--nav-height);
 }
 
+/* progress: where you are of the three steps */
+.calc__progress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.calc__progress-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-card);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.calc__progress-item .calc__number {
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-muted);
+}
+
+.calc__progress-item--active {
+  border-color: var(--blue-800);
+  color: var(--color-text);
+}
+
+.calc__progress-item--active .calc__number {
+  background-color: var(--blue-800);
+  color: var(--white);
+}
+
+.calc__progress-item--done .calc__number {
+  background-color: var(--color-accent);
+  color: var(--navy-900);
+}
+
+/* each step slides in when it replaces the previous one */
+.calc__step {
+  display: grid;
+  gap: var(--space-6);
+  animation: calc-step-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes calc-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.calc__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* wide: the step card in the middle, its buttons in a column to the right of it */
 @media (min-width: 64rem) {
-  .calc__layout {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--space-10);
-    align-items: start;
+  .calc__progress {
+    margin-right: calc(12rem + var(--space-6));
   }
 
-  .calc__result {
+  .calc__step {
+    grid-template-columns: minmax(0, 1fr) 12rem;
+    column-gap: var(--space-6);
+  }
+
+  .calc__step > * {
+    grid-column: 1;
+  }
+
+  .calc__step > .calc__nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
     position: sticky;
     top: calc(var(--nav-height) + var(--space-6));
+    /* primary action on top, back below it */
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+  }
+
+  .calc__step > .calc__nav .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .calc__progress-item {
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-2);
+    font-size: var(--text-sm);
+  }
+
+  .calc__nav .btn {
+    flex: 1 1 auto;
   }
 }
 
 /* FORM */
-.calc__form {
-  display: grid;
-  gap: var(--space-6);
-  justify-items: start;
-}
-
 .calc__group {
   width: 100%;
   min-width: 0;
@@ -44,12 +136,6 @@
   border: 0.0625rem solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface-card);
-  transition: opacity var(--duration-base) ease;
-}
-
-/* a step that cannot be filled in yet */
-.calc__group--waiting {
-  opacity: 0.55;
 }
 
 .calc__legend {
@@ -138,24 +224,42 @@
   color: var(--white);
 }
 
-/* estimation methods */
+/* estimation methods: compact rows with a radio dot */
 .calc__methods {
   display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
+  gap: var(--space-2);
+  margin-top: var(--space-4);
 }
 
 .method {
   position: relative;
   display: flex;
-  padding: var(--space-4);
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border: 0.0625rem solid var(--color-border);
   border-radius: var(--radius-sm);
   background-color: var(--color-surface-page);
   cursor: pointer;
   transition:
     background-color var(--duration-fast) ease,
-    border-color var(--duration-fast) ease;
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
+}
+
+.method::before {
+  content: "";
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.125rem;
+  border: 0.125rem solid var(--steel-300);
+  border-radius: 50%;
+  background-color: var(--white);
+  transition:
+    border-color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
 }
 
 .method:hover {
@@ -164,26 +268,30 @@
 
 .method--selected,
 .method--selected:hover {
-  border-color: var(--blue-800);
-  background-color: var(--blue-800);
-  color: var(--white);
+  border-color: var(--blue-600);
+  background-color: var(--blue-100);
+  box-shadow: inset 0 0 0 0.0625rem var(--blue-600);
 }
 
-.method--selected .method__description {
-  color: var(--blue-100);
+.method--selected::before {
+  border-color: var(--blue-600);
+  background-color: var(--blue-600);
+  box-shadow: inset 0 0 0 0.1875rem var(--white);
 }
 
 .method__body {
   display: grid;
-  gap: var(--space-1);
+  gap: 0.125rem;
 }
 
 .method__title {
   font-weight: 700;
+  line-height: var(--leading-snug);
 }
 
 .method__description {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
+  line-height: 1.45;
   color: var(--color-text-muted);
 }
 
@@ -231,24 +339,335 @@
   color: var(--color-danger);
 }
 
-@media (min-width: 40rem) {
-  .calc__inputs {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* tighter type inside the step 2 cards */
+.calc__card .calc__legend {
+  font-size: var(--text-md);
+}
 
-  /* label, input and error share rows across both fields, so the inputs line up
-     even when one label wraps onto two lines */
-  .form-field {
-    grid-row: span 3;
-    grid-template-rows: subgrid;
-  }
+.calc__card .calc__hint {
+  font-size: var(--text-sm);
+}
 
-  .form-field label {
-    align-self: end;
+/* step 2: two compact cards side by side. The card in focus is lifted, lit and gets a
+   gradient bar along its top; the other waits, faded back. Behind them a soft light
+   glides from the left card to the right one once a method is picked. */
+.calc__deck {
+  --deck-gap: var(--space-6);
+  --deck-glow: 0.75rem;
+  position: relative;
+  display: grid;
+  gap: var(--deck-gap);
+}
+
+.calc__card {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-5);
+  background-color: rgba(255, 255, 255, 0.72);
+  opacity: 0.58;
+  transform: scale(0.97);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 500ms var(--ease-out),
+    box-shadow 500ms var(--ease-out),
+    border-color 500ms var(--ease-out),
+    background-color 500ms var(--ease-out);
+}
+
+.calc__card:hover {
+  opacity: 0.82;
+}
+
+/* gradient bar that draws itself in from the left on the card in focus */
+.calc__card::before {
+  content: "";
+  position: absolute;
+  top: -0.0625rem;
+  right: -0.0625rem;
+  left: -0.0625rem;
+  height: 0.25rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: linear-gradient(90deg, var(--blue-500), var(--green-500));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 600ms var(--ease-out) 120ms;
+}
+
+.calc__card--focus {
+  border-color: transparent;
+  background-color: var(--white);
+  opacity: 1;
+  transform: none;
+  box-shadow:
+    0 0 0 0.0625rem rgba(40, 136, 200, 0.28),
+    var(--shadow-lg);
+}
+
+.calc__card--focus:hover {
+  opacity: 1;
+}
+
+.calc__card--focus::before {
+  transform: scaleX(1);
+}
+
+/* small numbered pill in front of each card title */
+.calc__card-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 2.25rem;
+  height: 1.5rem;
+  padding: 0 var(--space-2);
+  border-radius: 62.5rem;
+  background-color: var(--color-surface-sunken);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  font-stretch: 100%;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  transition:
+    background-color 400ms ease,
+    color 400ms ease;
+}
+
+.calc__card--focus .calc__card-index {
+  background-color: var(--blue-600);
+  color: var(--white);
+}
+
+/* the fields slide in from the left as the values card comes into focus */
+.calc__card--focus .calc__inputs > .form-field {
+  animation: calc-field-in 520ms var(--ease-out) 160ms both;
+}
+
+.calc__card--focus .calc__inputs > .form-field + .form-field {
+  animation-delay: 260ms;
+}
+
+@keyframes calc-field-in {
+  from {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
+/* before a method is picked, the values card points back at the method card */
+.calc__waiting {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--space-3);
+  min-height: 10rem;
+  margin-top: var(--space-4);
+  padding: var(--space-6) var(--space-4);
+  border: 0.125rem dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.calc__waiting p {
+  max-width: 16rem;
+  margin: 0;
+}
+
+.calc__waiting-icon {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--blue-100);
+  animation: calc-nudge-up 1.6s ease-in-out infinite;
+}
+
+/* chevron, pointing up at the method card above */
+.calc__waiting-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: solid var(--blue-700);
+  border-width: 0 0 0.15rem 0.15rem;
+  transform: translate(-50%, -25%) rotate(135deg);
+}
+
+@keyframes calc-nudge-up {
+  50% {
+    transform: translateY(-0.375rem);
+  }
+}
+
+@keyframes calc-nudge-left {
+  50% {
+    transform: translateX(-0.375rem);
+  }
+}
+
+/* round arrow between the two cards (wide screens only) */
+.calc__link {
+  display: none;
+}
+
+/* narrow: the cards stack; the values card slides in from the left when it takes focus */
+@media (max-width: 48rem) {
+  .calc__card--values.calc__card--focus {
+    animation: calc-card-in 520ms var(--ease-out);
+  }
+}
+
+@keyframes calc-card-in {
+  from {
+    opacity: 0.4;
+    transform: translateX(-2rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 48.0625rem) {
+  .calc__deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* the light behind the card in focus */
+  .calc__deck::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: calc(var(--deck-glow) * -1);
+    bottom: calc(var(--deck-glow) * -1);
+    left: calc(var(--deck-glow) * -1);
+    width: calc((100% - var(--deck-gap)) / 2 + var(--deck-glow) * 2);
+    border-radius: calc(var(--radius-md) + var(--deck-glow));
+    background:
+      radial-gradient(
+        circle at 20% 0%,
+        rgba(132, 196, 65, 0.22),
+        transparent 60%
+      ),
+      linear-gradient(140deg, rgba(40, 136, 200, 0.2), rgba(40, 136, 200, 0.05));
+    transition: transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .calc__deck--values::before {
+    transform: translateX(
+      calc(100% - var(--deck-glow) * 2 + var(--deck-gap))
+    );
+  }
+
+  .calc__link {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: 50%;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    transform: translate(-50%, -50%);
+    transition:
+      background-color 400ms ease,
+      border-color 400ms ease,
+      transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  /* chevron pointing right, toward the values card */
+  .calc__link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.5625rem;
+    height: 0.5625rem;
+    border: solid var(--blue-700);
+    border-width: 0.15rem 0.15rem 0 0;
+    transform: translate(-70%, -50%) rotate(45deg);
+    transition: border-color 400ms ease;
+  }
+
+  .calc__deck--values .calc__link {
+    border-color: var(--blue-600);
+    background-color: var(--blue-600);
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  .calc__deck--values .calc__link::before {
+    border-color: var(--white);
+  }
+
+  .calc__waiting-icon {
+    animation-name: calc-nudge-left;
+  }
+
+  /* chevron, pointing left at the method card beside it */
+  .calc__waiting-icon::before {
+    transform: translate(-25%, -50%) rotate(45deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calc__waiting-icon {
+    animation: none;
+  }
+}
+
+/* the glow reaches a little past the deck; keep it from widening the page */
+.calc {
+  overflow-x: clip;
+}
+
 /* RESULT PANEL */
+/* figures on the left, the recommended digester's photo on the right */
+.calc__result--with-photo {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* the photo fills a panel the color of its own backdrop */
+.calc__result-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-product-photo);
+  overflow: hidden;
+}
+
+.calc__result-photo img {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  object-fit: contain;
+}
+
+@media (min-width: 48.0625rem) {
+  .calc__result-photo img {
+    max-height: none;
+  }
+}
+
+@media (min-width: 48.0625rem) {
+  .calc__result--with-photo {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+}
+
 .calc__result {
   padding: var(--space-6);
   border-radius: var(--radius-md);
@@ -260,11 +679,6 @@
   margin: 0;
   font-size: var(--text-md);
   font-weight: 600;
-  color: var(--color-text-on-inverse-muted);
-}
-
-.calc__empty {
-  margin: var(--space-4) 0 0;
   color: var(--color-text-on-inverse-muted);
 }
 
@@ -328,17 +742,6 @@
 .recommendation__description {
   margin: var(--space-3) 0 0;
   color: var(--color-text-muted);
-}
-
-.recommendation__image {
-  margin-top: var(--space-3);
-}
-
-.recommendation__image img {
-  display: block;
-  width: 100%;
-  max-height: 16rem;
-  object-fit: contain;
 }
 
 .calc__actions {

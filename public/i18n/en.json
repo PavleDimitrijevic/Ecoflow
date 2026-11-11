@@ -157,6 +157,7 @@
   "CALCULATOR_METHOD_TITLE": "Choose your estimation method",
   "CALCULATOR_METHOD_DESCRIPTION": "Use the method you already know best. You can estimate by meals, people, capacity, or direct daily waste.",
   "CALCULATOR_INPUT_TITLE": "Enter your values",
+  "CALCULATOR_INPUT_WAITING": "Pick an estimation method first, then enter your values here.",
   "CALCULATOR_OPERATING_DAYS": "Operating days per week",
   "CALCULATOR_CONTINUE": "Continue",
   "CALCULATOR_BACK": "Back",

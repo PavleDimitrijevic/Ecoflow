@@ -37,6 +37,8 @@
   --color-border: var(--steel-300);
   --color-focus-ring: var(--blue-500);
   --color-danger: var(--red-600);
+  /* the studio backdrop of the product photos, so their frames blend into them */
+  --color-product-photo: #e1ecf0;
 
   /* Typography */
   --font-sans: "Archivo", "Segoe UI", Arial, sans-serif;
@@ -186,6 +188,12 @@ img {
     background-color var(--duration-fast) ease,
     border-color var(--duration-fast) ease,
     color var(--duration-fast) ease;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .btn--lg {
