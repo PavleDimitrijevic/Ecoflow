@@ -29,6 +29,9 @@ import {
   WizardStep,
 } from './calculator.models';
 
+// keep in step with the max-width: 48rem rule that hides the Continue button
+const SMALL_SCREEN_QUERY = '(max-width: 48rem)';
+
 type CalculatorFormGroup = FormGroup<{
   category: FormControl<BusinessCategoryId | null>;
   method: FormControl<CalculationMethodId | null>;
@@ -249,6 +252,17 @@ export class CalculatorComponent implements OnInit {
         ? 'values'
         : 'choose';
     this.goToStep('method');
+  }
+
+  // small screens: picking a category goes straight on, there is no Continue button
+  onCategoryPicked(): void {
+    if (!window.matchMedia(SMALL_SCREEN_QUERY).matches) {
+      return;
+    }
+
+    // the radio's value lands after the click; a short pause also lets the chip
+    // light up before the step changes
+    setTimeout(() => this.continueToMethodStep(), 200);
   }
 
   showValues(): void {

@@ -114,6 +114,13 @@
   }
 }
 
+/* small screens: a tap on a category moves on by itself */
+@media (max-width: 48rem) {
+  .calc__nav--category {
+    display: none;
+  }
+}
+
 @media (max-width: 30rem) {
   .calc__progress-item {
     flex-direction: column;

@@ -61,13 +61,15 @@
                 type="radio"
                 formControlName="category"
                 [value]="category.id"
+                (click)="onCategoryPicked()"
               />
               {{ category.labelKey | translate }}
             </label>
           </div>
         </fieldset>
 
-        <div class="calc__nav">
+        <!-- on small screens picking a category moves on by itself, so this is hidden there -->
+        <div class="calc__nav calc__nav--category">
           <button
             type="button"
             class="btn btn--primary btn--lg"
